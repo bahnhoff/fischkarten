@@ -152,8 +152,8 @@ export const GROUP = [
     img: 'img/neunauge.jpg',
     path: 'kein Kiemendeckel, stattdessen eine Reihe Kiemenöffnungen → Neunaugen',
     features: [
-      { text: 'Kein Kiemendeckel, Reihe aus 7 runden Kiemenöffnungen', x: 30.8, y: 28.7, src: 'S25, WP' },
-      { text: 'Mundscheibe statt Kiefer', x: 20.8, y: 66.7, src: 'S25, WP' },
+      { text: 'Kein Kiemendeckel, Reihe aus 7 runden Kiemenöffnungen', x: 25, y: 71.5, src: 'S25, WP' },
+      { text: 'Mundscheibe statt Kiefer', x: 5.5, y: 73, src: 'S25, WP' },
       { text: 'Bach- und Flussneunauge nur über Lebensraum und Länge trennbar (Bach bis etwa 19 cm, Fluss bis etwa 45 cm)', src: 'S25' },
     ],
     similar: [
