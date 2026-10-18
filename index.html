@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fischkarten NRW</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <section id="home" class="view">
+    <h1>Fischkarten NRW</h1>
+    <p class="sub">49 Arten der Fischerprüfung Nordrhein-Westfalen</p>
+    <div class="menu">
+      <button id="btn-start" class="primary">Start</button>
+      <button id="btn-exam">Prüfungsmodus (6 Karten)</button>
+      <button id="btn-select">Fische auswählen</button>
+      <a class="button" href="baum.html">Bestimmungsbaum</a>
+    </div>
+    <p id="home-count" class="sub"></p>
+  </section>
+
+  <section id="card" class="view" hidden>
+    <div class="stage-wrap">
+      <div id="stage" class="stage" title="Klicken zeigt die Merkmale">
+        <img id="fish-img" alt="Fisch ohne Namen">
+        <svg id="arrows" class="arrows" aria-hidden="true"></svg>
+      </div>
+      <div id="length" class="length"></div>
+    </div>
+    <aside class="panel">
+      <div class="topbar">
+        <button id="btn-home" class="small">← Menü</button>
+        <span id="progress" class="progress"></span>
+      </div>
+      <button id="name" class="name" aria-label="Namen aufdecken">★★★★★★</button>
+      <p id="hint" class="hint">Klick auf das Bild zeigt die Merkmale.</p>
+      <div id="features" hidden>
+        <ol id="feature-list"></ol>
+        <p id="path" class="path"></p>
+        <p id="mnemonic" class="mnemonic"></p>
+      </div>
+      <button id="btn-similar" class="small" hidden>Ähnliche Fische</button>
+      <ul id="similar" class="similar" hidden></ul>
+      <div class="actions">
+        <label id="hide-wrap" class="hide-wrap"><input type="checkbox" id="hide-current"> Gelernt, ausblenden</label>
+        <div id="exam-rate" hidden>
+          <button id="btn-right" class="ok">Richtig</button>
+          <button id="btn-wrong" class="bad">Falsch</button>
+        </div>
+        <button id="btn-next" class="primary">Weiter →</button>
+      </div>
+    </aside>
+  </section>
+
+  <section id="empty" class="view" hidden>
+    <h2>Alle Fische ausgeblendet</h2>
+    <p>Blende in der Auswahl wieder Fische ein, um weiterzulernen.</p>
+    <div class="menu">
+      <button id="btn-empty-select" class="primary">Fische auswählen</button>
+      <button class="go-home">Menü</button>
+    </div>
+  </section>
+
+  <section id="result" class="view" hidden>
+    <h2 id="result-title"></h2>
+    <p id="result-text"></p>
+    <ul id="result-list" class="result-list"></ul>
+    <div class="menu">
+      <button id="btn-exam-again" class="primary">Neue Prüfung</button>
+      <button class="go-home">Menü</button>
+    </div>
+  </section>
+
+  <section id="select" class="view" hidden>
+    <div class="topbar">
+      <button class="go-home small">← Menü</button>
+      <h2>Fische auswählen</h2>
+      <button id="btn-show-all" class="small">Alle einblenden</button>
+    </div>
+    <p class="sub">Haken gesetzt = wird abgefragt.</p>
+    <div id="select-list" class="select-list"></div>
+  </section>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

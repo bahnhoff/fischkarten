@@ -1,0 +1,136 @@
+:root {
+  --bg: #f4f1ea;
+  --card: #fffdf8;
+  --ink: #1f2a2e;
+  --muted: #5f6b6f;
+  --accent: #1d6f8c;
+  --arrow: #d2401e;
+  --ok: #2e7d32;
+  --bad: #b3261e;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+[hidden] { display: none !important; }
+
+button, .button {
+  font: inherit;
+  min-height: 44px;
+  padding: 0.5em 1.1em;
+  border: 1px solid #c9c2b3;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+button.primary, .button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+button.small { min-height: 36px; padding: 0.3em 0.8em; font-size: 0.9em; }
+button.ok { background: var(--ok); color: #fff; border-color: var(--ok); }
+button.bad { background: var(--bad); color: #fff; border-color: var(--bad); }
+
+.view { min-height: 100%; padding: 1.5rem; }
+#home, #empty, #result { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+h1 { margin: 0 0 0.3em; font-size: 2rem; }
+.sub { color: var(--muted); margin: 0.3em 0 1em; }
+.menu { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; }
+
+/* ---------- Karte ---------- */
+#card {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+  gap: 1.2rem;
+  height: 100vh;
+  height: 100dvh;
+  padding: 1rem;
+}
+.stage-wrap { display: flex; flex-direction: column; min-height: 0; background: var(--card); border-radius: 14px; box-shadow: 0 1px 4px rgb(0 0 0 / 0.12); }
+.stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.2rem 1rem; /* Rand für Pfeilnummern */
+}
+.stage.clickable { cursor: pointer; }
+.stage img { max-width: 100%; max-height: 100%; object-fit: contain; user-select: none; }
+.arrows { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.arrow-line { stroke: var(--arrow); stroke-width: 2.5; }
+.arrow-head { fill: var(--arrow); }
+.arrow-badge { fill: var(--arrow); stroke: #fff; stroke-width: 2; }
+.arrow-num { fill: #fff; font-size: 15px; font-weight: 700; text-anchor: middle; }
+.length { text-align: center; font-size: 1.3rem; font-weight: 600; padding: 0.4rem 0 0.8rem; }
+
+.panel { display: flex; flex-direction: column; gap: 0.7rem; min-height: 0; overflow-y: auto; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 0.7rem; }
+.topbar h2 { margin: 0; font-size: 1.2rem; }
+.progress { color: var(--muted); }
+.name {
+  font-size: 1.6rem;
+  letter-spacing: 0.15em;
+  min-height: 64px;
+  background: #fff7dc;
+  border: 2px dashed #d9b84a;
+}
+.name.revealed { letter-spacing: normal; font-weight: 700; background: #e3f2e5; border: 2px solid var(--ok); }
+.hint { color: var(--muted); margin: 0; }
+#feature-list { margin: 0; padding-left: 1.6em; }
+#feature-list li { margin: 0.25em 0; }
+#feature-list li::marker { color: var(--arrow); font-weight: 700; }
+#feature-list li.text-only { color: var(--muted); }
+.path { font-size: 0.9em; color: var(--muted); margin: 0.5em 0 0; }
+.mnemonic { font-size: 0.95em; background: #eef6f9; border-left: 4px solid var(--accent); padding: 0.4em 0.6em; margin: 0.5em 0 0; }
+.similar { margin: 0; padding-left: 1.2em; font-size: 0.95em; }
+.similar li { margin: 0.3em 0; }
+.actions { margin-top: auto; display: flex; flex-direction: column; gap: 0.6rem; }
+.actions #exam-rate { display: flex; gap: 0.6rem; }
+.actions #exam-rate button { flex: 1; }
+.hide-wrap { color: var(--muted); display: flex; align-items: center; gap: 0.4em; }
+.hide-wrap input { width: 20px; height: 20px; }
+
+/* ---------- Auswahl und Ergebnis ---------- */
+.select-list { columns: 4 180px; gap: 1rem; }
+.select-list label { display: flex; align-items: center; gap: 0.5em; padding: 0.35em 0; break-inside: avoid; }
+.select-list input { width: 20px; height: 20px; }
+.result-list { list-style: none; padding: 0; text-align: left; }
+.result-list .ok { color: var(--ok); }
+.result-list .bad { color: var(--bad); }
+
+/* ---------- Kleine Bildschirme quer ---------- */
+@media (max-height: 500px) {
+  :root { font-size: 14px; }
+  .view { padding: 0.8rem; }
+  #card { gap: 0.6rem; padding: 0.5rem; padding-left: max(0.5rem, env(safe-area-inset-left)); padding-right: max(0.5rem, env(safe-area-inset-right)); }
+  .stage { padding: 2.4rem 0.5rem; }
+  .length { font-size: 1.1rem; padding: 0.2rem 0 0.4rem; }
+  .name { min-height: 48px; font-size: 1.3rem; }
+  button, .button { min-height: 40px; }
+}
+
+/* Hochformat: Bild oben, Bedienung unten */
+@media (orientation: portrait) and (max-width: 700px) {
+  #card { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; height: auto; min-height: 100dvh; }
+}
+
+/* ---------- Bestimmungsbaum ---------- */
+.tree { max-width: 900px; margin: 0 auto; }
+.tree details { margin: 0.3em 0 0.3em 1.2em; }
+.tree summary { cursor: pointer; padding: 0.2em 0; }
+.tree .q { font-weight: 600; }
+.tree .leaf { margin-left: 1.2em; color: var(--accent); font-weight: 600; }
+
+/* Bedienknöpfe bleiben immer sichtbar, auch wenn der Merkmalstext scrollt */
+.actions { position: sticky; bottom: 0; background: var(--bg); padding-top: 0.4rem; }
+@media (max-height: 500px) {
+  .actions { flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .actions #btn-next { flex: 1; }
+  .panel { gap: 0.4rem; }
+}
