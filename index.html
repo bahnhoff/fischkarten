@@ -13,6 +13,7 @@
     <div class="menu">
       <button id="btn-start" class="primary">Start</button>
       <button id="btn-exam">Prüfungsmodus (6 Karten)</button>
+      <button id="btn-match">Zuordnungsspiel</button>
       <button id="btn-select">Fische auswählen</button>
       <a class="button" href="baum.html">Bestimmungsbaum</a>
     </div>
@@ -69,6 +70,28 @@
     <div class="menu">
       <button id="btn-exam-again" class="primary">Neue Prüfung</button>
       <button class="go-home">Menü</button>
+    </div>
+  </section>
+
+  <section id="match" class="view" hidden>
+    <div class="topbar">
+      <button class="go-home small">← Menü</button>
+      <h2>Zuordnen</h2>
+      <span id="match-status" class="progress"></span>
+      <span class="seg" role="group" aria-label="Anzahl Paare">
+        <button class="small" data-pairs="4">4 Paare</button>
+        <button class="small" data-pairs="6">6 Paare</button>
+      </span>
+    </div>
+    <div class="match-grid">
+      <div id="match-pics" class="match-pics"></div>
+      <div class="match-side">
+        <div id="match-names" class="match-names"></div>
+        <div id="match-done" class="match-done" hidden>
+          <p id="match-result"></p>
+          <button id="btn-match-next" class="primary">Nächste Runde</button>
+        </div>
+      </div>
     </div>
   </section>
 

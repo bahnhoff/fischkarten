@@ -2,6 +2,7 @@ import { SPECIES } from '../data/species.js';
 import { activeSpecies, nextSpecies, loadHidden, saveHidden, drawExam, examPassed } from './deck.js';
 import { drawArrows } from './card.js';
 import { speciesForSimilar } from './names.js';
+import { newRound, tryPair, roundDone } from './match.js';
 
 const $ = id => document.getElementById(id);
 const storage = (() => { try { return window.localStorage; } catch { return null; } })();
@@ -180,6 +181,81 @@ function rateExam(right) {
   show('result');
 }
 
+// ---------- Zuordnungsspiel ----------
+
+const match = { pairs: 4, round: null, pic: null, name: null };
+
+function startMatch() {
+  match.round = newRound(activeSpecies(SPECIES, state.hidden), SPECIES, match.pairs);
+  match.pic = match.name = null;
+  for (const b of document.querySelectorAll('[data-pairs]')) b.classList.toggle('active', Number(b.dataset.pairs) === match.pairs);
+  $('match-pics').className = `match-pics pairs-${match.pairs}`;
+  $('match-pics').replaceChildren(...match.round.pictures.map(sp => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'match-pic';
+    b.dataset.id = sp.id;
+    const img = document.createElement('img');
+    img.src = sp.img;
+    img.alt = 'Fisch ohne Namen';
+    const cap = document.createElement('span');
+    cap.className = 'match-cap';
+    cap.textContent = `bis ${sp.length} cm`;
+    b.append(img, cap);
+    b.addEventListener('click', () => pickMatch('pic', sp.id));
+    return b;
+  }));
+  $('match-names').replaceChildren(...match.round.names.map(sp => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'match-name';
+    b.dataset.id = sp.id;
+    b.textContent = sp.name;
+    b.addEventListener('click', () => pickMatch('name', sp.id));
+    return b;
+  }));
+  $('match-done').hidden = true;
+  updateMatchStatus();
+  show('match');
+}
+
+function updateMatchStatus() {
+  const r = match.round;
+  $('match-status').textContent = `${r.solved.size} von ${r.pictures.length} · Fehler: ${r.mistakes}`;
+}
+
+function pickMatch(kind, id) {
+  const r = match.round;
+  if (r.solved.has(id)) return;
+  match[kind] = match[kind] === id ? null : id;
+  for (const b of $('match-pics').children) b.classList.toggle('selected', b.dataset.id === match.pic);
+  for (const b of $('match-names').children) b.classList.toggle('selected', b.dataset.id === match.name);
+  if (!match.pic || !match.name) return;
+
+  const picBtn = $('match-pics').querySelector(`[data-id="${match.pic}"]`);
+  const nameBtn = $('match-names').querySelector(`[data-id="${match.name}"]`);
+  const ok = tryPair(r, match.pic, match.name);
+  match.pic = match.name = null;
+  for (const b of [picBtn, nameBtn]) b.classList.remove('selected');
+  if (ok) {
+    picBtn.classList.add('solved');
+    nameBtn.classList.add('solved');
+    picBtn.querySelector('.match-cap').textContent = nameBtn.textContent;
+  } else {
+    for (const b of [picBtn, nameBtn]) {
+      b.classList.add('wrong');
+      setTimeout(() => b.classList.remove('wrong'), 700);
+    }
+  }
+  updateMatchStatus();
+  if (roundDone(r)) {
+    $('match-result').textContent = r.mistakes === 0
+      ? 'Alle Paare richtig, ohne Fehler.'
+      : `Alle Paare gefunden, mit ${r.mistakes} ${r.mistakes === 1 ? 'Fehler' : 'Fehlern'}.`;
+    $('match-done').hidden = false;
+  }
+}
+
 // ---------- Auswahl ----------
 
 function renderSelect() {
@@ -228,6 +304,11 @@ function backFromCard() {
 
 $('btn-start').addEventListener('click', () => { state.current = null; learnNext(); });
 $('btn-exam').addEventListener('click', startExam);
+$('btn-match').addEventListener('click', startMatch);
+$('btn-match-next').addEventListener('click', startMatch);
+for (const b of document.querySelectorAll('[data-pairs]')) {
+  b.addEventListener('click', () => { match.pairs = Number(b.dataset.pairs); startMatch(); });
+}
 $('btn-exam-again').addEventListener('click', startExam);
 $('btn-select').addEventListener('click', renderSelect);
 $('btn-empty-select').addEventListener('click', renderSelect);
