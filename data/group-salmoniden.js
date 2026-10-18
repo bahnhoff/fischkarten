@@ -109,9 +109,9 @@ export const GROUP = [
     img: 'img/nordseeschnaepel.jpg',
     path: 'Fettflosse → keine Barteln → Rückenflosse nicht länger als der Kopf → Seitenlinie vollständig → Muster unauffällig (Renken)',
     features: [
-      { text: 'Fettflosse vorhanden', x: 73.3, y: 33.3, src: 'S25' },
-      { text: 'Flanke ohne auffälliges Muster', x: 50, y: 52, src: 'S25' },
-      { text: 'Schnauze auffallend nasenartig verlängert', x: 2.9, y: 51, src: 'WP' },
+      { text: 'Fettflosse vorhanden', x: 74.5, y: 38, src: 'S25' },
+      { text: 'Flanke ohne auffälliges Muster', x: 50, y: 54, src: 'S25' },
+      { text: 'Schnauze auffallend nasenartig verlängert', x: 4, y: 54, src: 'WP' },
     ],
     similar: [
       { name: 'Forellen und Lachs', diff: 'Deutliches Muster aus Punkten oder Flecken.' },
