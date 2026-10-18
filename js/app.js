@@ -11,6 +11,7 @@ const state = {
   current: null,
   showFeatures: false,
   exam: null, // { cards, index, correct, results }
+  returnTo: null, // 'select' oder 'baum': wohin „Zurück“ auf der Karte führt
 };
 
 function show(viewId) {
@@ -142,10 +143,39 @@ function renderSelect() {
     cb.type = 'checkbox';
     cb.checked = !state.hidden.has(s.id);
     cb.addEventListener('change', () => setHidden(s.id, !cb.checked));
-    label.append(cb, ` ${s.name}`);
-    return label;
+    cb.setAttribute('aria-label', `${s.name} abfragen`);
+    const name = document.createElement('button');
+    name.type = 'button';
+    name.className = 'sel-name';
+    name.textContent = s.name;
+    name.addEventListener('click', () => openFrom('select', s));
+    const row = document.createElement('div');
+    row.className = 'sel-row';
+    row.append(cb, name);
+    return row;
   }));
   show('select');
+}
+
+// Karte aus Auswahl oder Baum öffnen: Merkmale und Name gleich sichtbar.
+function openFrom(origin, species) {
+  state.returnTo = origin;
+  state.selectScroll = window.scrollY;
+  $('btn-home').textContent = origin === 'select' ? '← Auswahl' : '← Bestimmungsbaum';
+  renderCard(species);
+  toggleFeatures();
+  revealName();
+}
+
+function backFromCard() {
+  const origin = state.returnTo;
+  state.returnTo = null;
+  $('btn-home').textContent = '← Menü';
+  if (origin === 'select') { renderSelect(); window.scrollTo(0, state.selectScroll || 0); }
+  else if (origin === 'baum') {
+    if (document.referrer.includes('baum.html') && history.length > 1) history.back();
+    else location.href = 'baum.html';
+  } else goHome();
 }
 
 // ---------- Ereignisse ----------
@@ -156,7 +186,7 @@ $('btn-exam-again').addEventListener('click', startExam);
 $('btn-select').addEventListener('click', renderSelect);
 $('btn-empty-select').addEventListener('click', renderSelect);
 $('btn-show-all').addEventListener('click', () => { state.hidden.clear(); saveHidden(storage, state.hidden); renderSelect(); });
-$('btn-home').addEventListener('click', goHome);
+$('btn-home').addEventListener('click', backFromCard);
 for (const b of document.querySelectorAll('.go-home')) b.addEventListener('click', goHome);
 $('stage').addEventListener('click', toggleFeatures);
 $('fish-img').addEventListener('load', redrawArrows);
@@ -180,16 +210,10 @@ goHome();
 const params = new URLSearchParams(location.search);
 const direct = SPECIES.find(s => s.id === params.get('id'));
 if (direct) {
-  if (params.get('von') === 'baum') {
-    // Von der Baumseite gekommen: Zurück führt an dieselbe Stelle im Baum.
-    $('btn-home').textContent = '← Bestimmungsbaum';
-    $('btn-home').removeEventListener('click', goHome);
-    $('btn-home').addEventListener('click', () => {
-      if (document.referrer.includes('baum.html') && history.length > 1) history.back();
-      else location.href = 'baum.html';
-    });
+  if (params.get('von') === 'baum') openFrom('baum', direct);
+  else {
+    renderCard(direct);
+    if (params.get('merkmale')) toggleFeatures();
+    if (params.get('name')) revealName();
   }
-  renderCard(direct);
-  if (params.get('merkmale')) toggleFeatures();
-  if (params.get('name')) revealName();
 }
