@@ -5,7 +5,7 @@ Alle Dateien stammen von Wikimedia Commons (Originaldateien unter `https://uploa
 | Art | Datei | Urheber | Lizenz | Bearbeitung |
 |---|---|---|---|---|
 | Bachforelle | https://upload.wikimedia.org/wikipedia/commons/4/45/Brown_trout_FWS_white_background.jpg | U.S. Fish and Wildlife Service | gemeinfrei | keine |
-| Meerforelle | https://upload.wikimedia.org/wikipedia/commons/b/b4/Salmo_trutta_%28Pieni%29.jpg | Enzyklopädie „Pieni Tietosanakirja“ | gemeinfrei | ersetzt (vorher Lydon 1879, zwei Fische mit Landschaft); gespiegelt |
+| Meerforelle | https://www.pivi.de/wp-content/uploads/2020/07/Meerforelle.jpg (Seite: https://www.pivi.de/arten/fische/lachsartige/meerforelle/) | pivi.de | Lizenz nicht angegeben, auf Wunsch des Benutzers verwendet | ersetzt (vorher Pieni Tietosanakirja); zugeschnitten |
 | Lachs | https://upload.wikimedia.org/wikipedia/commons/7/7a/Salmo_salar_%28Pieni%29.jpg | Enzyklopädie „Pieni Tietosanakirja“ | gemeinfrei | gespiegelt |
 | Regenbogenforelle | https://upload.wikimedia.org/wikipedia/commons/c/cf/Oncorhynchus_mykiss_mid_res_150dpi_whiteBG.jpg | Duane Raver, U.S. Fish and Wildlife Service | gemeinfrei | keine |
 | Bachsaibling | https://upload.wikimedia.org/wikipedia/commons/8/87/Salvelinus_fontinalis_GLERL.jpg | NOAA GLERL (Urheber auf Commons nicht genannt) | gemeinfrei | gespiegelt |

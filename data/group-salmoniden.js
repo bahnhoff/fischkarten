@@ -27,11 +27,11 @@ export const GROUP = [
     img: 'img/meerforelle.jpg',
     path: `${LACHSFISCHE} → Schwanzflosse ohne oder mit wenigen Punkten → Forelle`,
     features: [
-      { text: 'Maulspalte reicht bis unter die Augenmitte oder weiter', x: 8.75, y: 56, src: 'S25, B11' },
-      { text: 'Kiemendeckel läuft eckig aus', x: 22.5, y: 52, src: 'B11' },
-      { text: 'Punkte auch unterhalb der Seitenlinie, Körper silbrig', x: 46.7, y: 60, src: 'S25, B11' },
-      { text: 'Breite, dicke Schwanzwurzel', x: 84, y: 55, src: 'S25, B11' },
-      { text: 'Schwanzflosse fast gerade', x: 97, y: 54, src: 'S25, B11' },
+      { text: 'Maulspalte reicht bis unter die Augenmitte oder weiter', x: 13, y: 64, src: 'S25, B11' },
+      { text: 'Kiemendeckel läuft eckig aus', x: 22.5, y: 60, src: 'B11' },
+      { text: 'Punkte auch unterhalb der Seitenlinie, Körper silbrig', x: 40, y: 64, src: 'S25, B11' },
+      { text: 'Breite, dicke Schwanzwurzel', x: 84, y: 57, src: 'S25, B11' },
+      { text: 'Schwanzflosse fast gerade', x: 96, y: 56, src: 'S25, B11' },
     ],
     similar: [
       { name: 'Lachs', diff: 'Schlanke Schwanzwurzel, eingebuchtete Schwanzflosse, Maulspalte höchstens bis unter die Augenmitte.' },
