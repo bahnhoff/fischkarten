@@ -23,9 +23,9 @@ export const GROUP = [
     img: 'img/quappe.jpg',
     path: 'keine Fettflosse → Körper symmetrisch → zwei Rückenflossen → Kinnbartel',
     features: [
-      { text: 'Zwei Rückenflossen, die zweite lang', x: 63.3, y: 22.8, src: 'S25' },
-      { text: 'Eine einzelne Bartel am Kinn (in dieser Zeichnung nicht zu sehen)', src: 'S25, SN-Q 1288' },
-      { text: 'Bauchflossen kehlständig', x: 28.3, y: 84.1, src: 'MV' },
+      { text: 'Zwei Rückenflossen, die zweite lang', x: 39, y: 14, src: 'S25' },
+      { text: 'Eine einzelne Bartel am Kinn', x: 3, y: 51, src: 'S25, SN-Q 1288' },
+      { text: 'Bauchflossen kehlständig', x: 20, y: 74, src: 'MV' },
     ],
     similar: [
       { name: 'Wels', diff: '6 Barteln, die langen reichen bis hinter den Brustflossenansatz; nur eine sehr kleine Rückenflosse.' },

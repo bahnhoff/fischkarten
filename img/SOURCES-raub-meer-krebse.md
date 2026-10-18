@@ -5,7 +5,7 @@ Alle Dateien von Wikimedia Commons. Bearbeitung: auf max. 1200 px Breite skalier
 | Art | Datei-URL | Urheber | Lizenz | Bearbeitung |
 |---|---|---|---|---|
 | Wels | https://upload.wikimedia.org/wikipedia/commons/8/81/Silurus_glanis1.jpg | Marcus Elieser Bloch / Krüger | gemeinfrei | gespiegelt |
-| Quappe | https://upload.wikimedia.org/wikipedia/commons/5/55/Lota_lota_GLERL_1.jpg | NOAA Great Lakes Environmental Research Laboratory (GLERL) | gemeinfrei | gespiegelt |
+| Quappe | https://www.fischereiverein-furth-im-wald.de/wp-content/uploads/2022/04/18_Rutte.jpg (Seite: https://www.fischereiverein-furth-im-wald.de/rutte-quappe-lota-lota/) | Fischereiverein Furth im Wald | Lizenz nicht angegeben, auf Wunsch des Benutzers verwendet | ersetzt (vorher NOAA GLERL); auf 1200 px verkleinert |
 | Flussbarsch | https://upload.wikimedia.org/wikipedia/commons/a/af/Perca_fluviatilis1.jpg | Marcus Elieser Bloch / Krüger | gemeinfrei | gespiegelt |
 | Zander | https://upload.wikimedia.org/wikipedia/commons/3/30/Sander_lucioperca.jpg | Marcus Elieser Bloch / Krüger | gemeinfrei | gespiegelt |
 | Kaulbarsch | https://upload.wikimedia.org/wikipedia/commons/b/be/Ichthyologie%3B_ou%2C_Histoire_naturelle_des_poissons_%28Plate_53%29_%287064419569%29.jpg | Marcus Elieser Bloch, Ichthyologie Taf. 53 (Krüger jun. del., F. W. Schmidt sc.) | gemeinfrei | Fig. 2 „Perca cernua“ ausgeschnitten, Beschriftung und Nachbarfigur in Papierfarbe übermalt, gespiegelt |
