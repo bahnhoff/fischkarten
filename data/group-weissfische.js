@@ -95,9 +95,9 @@ export const GROUP = [
     img: 'img/aland.jpg',
     path: `${WF} → Bauchkante gerundet → Maul endständig → Afterflosse konkav → 55–62 Seitenlinienschuppen`,
     features: [
-      { text: 'Maul endständig, klein', x: 3.5, y: 53, src: 'SN-A, B06' },
-      { text: 'Afterflossenrand nach innen gewölbt (konkav)', x: 72.5, y: 82, src: 'SN-A, SN-Q 1187' },
-      { text: 'Schuppen deutlich kleiner, 55–60 in der Seitenlinie', src: 'SN-A, B11, S25' },
+      { text: 'Maul endständig, klein', x: 3, y: 58, src: 'SN-A, B06' },
+      { text: 'Afterflossenrand nach innen gewölbt (konkav)', x: 65.5, y: 89, src: 'SN-A, SN-Q 1187' },
+      { text: 'Schuppen deutlich kleiner, 55–60 in der Seitenlinie', x: 50, y: 57, src: 'SN-A, B11, S25' },
     ],
     similar: [
       { name: 'Döbel', diff: 'Afterflossenrand konvex, große Schuppen (44–46).' },
