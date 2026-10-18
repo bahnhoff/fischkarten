@@ -207,3 +207,11 @@ h1 { margin: 0 0 0.3em; font-size: 2rem; }
   .match-name { min-height: 36px; padding: 0.2em 0.7em; }
   .match-pics { gap: 0.4rem; }
 }
+.match-name.hint { border-color: var(--ok); border-style: dashed; }
+.match-result { font-size: 1.15em; }
+.match-hint { color: var(--muted); font-weight: 400 !important; }
+.match-done h3 { margin: 0.8rem 0 0.3rem; font-size: 1rem; }
+.scores { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+.scores td { padding: 0.25em 0.4em; border-bottom: 1px solid #e3ddd0; text-align: left; }
+.scores td:nth-child(2) { font-weight: 700; text-align: right; }
+.scores tr.current { background: #fff3c4; }

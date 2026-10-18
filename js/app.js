@@ -2,7 +2,7 @@ import { SPECIES } from '../data/species.js';
 import { activeSpecies, nextSpecies, loadHidden, saveHidden, drawExam, examPassed } from './deck.js';
 import { drawArrows } from './card.js';
 import { speciesForSimilar } from './names.js';
-import { newRound, tryPair, roundDone } from './match.js';
+import { newRound, tryPair, roundDone, addHighscore, loadHighscores, saveHighscores } from './match.js';
 
 const $ = id => document.getElementById(id);
 const storage = (() => { try { return window.localStorage; } catch { return null; } })();
@@ -183,9 +183,20 @@ function rateExam(right) {
 
 // ---------- Zuordnungsspiel ----------
 
-const match = { pairs: 4, round: null, pic: null, name: null };
+// Ein Spiel besteht aus Runden; jede fehlerfreie Runde bringt so viele Punkte wie Paare, der erste Fehler beendet das Spiel.
+const match = { pairs: 4, round: null, pic: null, name: null, score: 0, roundNo: 0, over: false };
 
 function startMatch() {
+  match.score = 0;
+  match.roundNo = 0;
+  match.over = false;
+  $('match-done').hidden = true;
+  nextMatchRound();
+  show('match');
+}
+
+function nextMatchRound() {
+  match.roundNo++;
   match.round = newRound(activeSpecies(SPECIES, state.hidden), SPECIES, match.pairs);
   match.pic = match.name = null;
   for (const b of document.querySelectorAll('[data-pairs]')) b.classList.toggle('active', Number(b.dataset.pairs) === match.pairs);
@@ -214,46 +225,68 @@ function startMatch() {
     b.addEventListener('click', () => pickMatch('name', sp.id));
     return b;
   }));
-  $('match-done').hidden = true;
   updateMatchStatus();
-  show('match');
 }
 
 function updateMatchStatus() {
-  const r = match.round;
-  $('match-status').textContent = `${r.solved.size} von ${r.pictures.length} · Fehler: ${r.mistakes}`;
+  $('match-status').textContent = `Runde ${match.roundNo} · Punkte: ${match.score}`;
 }
 
 function pickMatch(kind, id) {
   const r = match.round;
-  if (r.solved.has(id)) return;
+  if (match.over || r.solved.has(id)) return;
   match[kind] = match[kind] === id ? null : id;
   for (const b of $('match-pics').children) b.classList.toggle('selected', b.dataset.id === match.pic);
   for (const b of $('match-names').children) b.classList.toggle('selected', b.dataset.id === match.name);
   if (!match.pic || !match.name) return;
 
-  const picBtn = $('match-pics').querySelector(`[data-id="${match.pic}"]`);
+  const picId = match.pic;
+  const picBtn = $('match-pics').querySelector(`[data-id="${picId}"]`);
   const nameBtn = $('match-names').querySelector(`[data-id="${match.name}"]`);
   const ok = tryPair(r, match.pic, match.name);
   match.pic = match.name = null;
   for (const b of [picBtn, nameBtn]) b.classList.remove('selected');
-  if (ok) {
-    picBtn.classList.add('solved');
-    nameBtn.classList.add('solved');
-    picBtn.querySelector('.match-cap').textContent = nameBtn.textContent;
-  } else {
-    for (const b of [picBtn, nameBtn]) {
-      b.classList.add('wrong');
-      setTimeout(() => b.classList.remove('wrong'), 700);
-    }
+  if (!ok) {
+    for (const b of [picBtn, nameBtn]) b.classList.add('wrong');
+    matchGameOver(picId);
+    return;
+  }
+  picBtn.classList.add('solved');
+  nameBtn.classList.add('solved');
+  picBtn.querySelector('.match-cap').textContent = nameBtn.textContent;
+  if (roundDone(r)) {
+    match.score += match.pairs;
+    setTimeout(() => { if (!match.over && match.round === r) nextMatchRound(); }, 700);
   }
   updateMatchStatus();
-  if (roundDone(r)) {
-    $('match-result').textContent = r.mistakes === 0
-      ? 'Alle Paare richtig, ohne Fehler.'
-      : `Alle Paare gefunden, mit ${r.mistakes} ${r.mistakes === 1 ? 'Fehler' : 'Fehlern'}.`;
-    $('match-done').hidden = false;
-  }
+}
+
+function matchGameOver(picId) {
+  match.over = true;
+  const right = SPECIES.find(s => s.id === picId);
+  // Richtige Lösung zum angeklickten Bild zeigen, damit man aus dem Fehler lernt.
+  $('match-pics').querySelector(`[data-id="${picId}"] .match-cap`).textContent = `Richtig: ${right.name}`;
+  $('match-names').querySelector(`[data-id="${picId}"]`)?.classList.add('hint');
+
+  const entry = { score: match.score, rounds: match.roundNo, pairs: match.pairs, date: new Date().toISOString() };
+  const { list, rank } = addHighscore(loadHighscores(storage), entry);
+  saveHighscores(storage, list);
+
+  $('match-result').textContent = `Game over: ${match.score} ${match.score === 1 ? 'Punkt' : 'Punkte'} in Runde ${match.roundNo}.`
+    + (rank === 1 && list.length > 1 ? ' Neuer Rekord.' : rank ? ` Platz ${rank}.` : '');
+  $('match-scores').replaceChildren(...list.map((e, i) => {
+    const tr = document.createElement('tr');
+    if (e === entry) tr.className = 'current';
+    const d = new Date(e.date);
+    for (const v of [`${i + 1}.`, e.score, `Runde ${e.rounds}`, `${e.pairs} Paare`, d.toLocaleDateString('de-DE')]) {
+      const td = document.createElement('td');
+      td.textContent = v;
+      tr.append(td);
+    }
+    return tr;
+  }));
+  $('match-done').hidden = false;
+  $('match-done').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 // ---------- Auswahl ----------

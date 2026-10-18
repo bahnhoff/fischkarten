@@ -28,3 +28,34 @@ test('richtiges Paar wird gelöst, falsches zählt als Fehler', () => {
   assert.equal(roundDone(r), true);
   assert.equal(r.mistakes, 1);
 });
+
+import { addHighscore, loadHighscores, saveHighscores } from '../js/match.js';
+
+const e = (score, date) => ({ score, rounds: 1, pairs: 4, date });
+
+test('Highscore wird nach Punkten einsortiert, Liste auf 10 begrenzt', () => {
+  let list = [];
+  for (let i = 0; i < 10; i++) list = addHighscore(list, e(i, `2026-10-0${i % 9 + 1}`)).list;
+  const top = e(50, '2026-10-18');
+  const r = addHighscore(list, top);
+  assert.equal(r.rank, 1);
+  assert.equal(r.list.length, 10);
+  assert.equal(r.list.at(-1).score, 1);
+  assert.equal(addHighscore(r.list, e(0, '2026-10-18')).rank, null);
+});
+
+test('bei Gleichstand bleibt das ältere Ergebnis vorn', () => {
+  const old = e(5, '2026-10-01');
+  const r = addHighscore([old], e(5, '2026-10-18'));
+  assert.equal(r.list[0], old);
+  assert.equal(r.rank, 2);
+});
+
+test('kaputte Highscore-Daten ergeben eine leere Liste', () => {
+  assert.deepEqual(loadHighscores({ getItem: () => '{kaputt' }), []);
+  assert.deepEqual(loadHighscores(null), []);
+  const m = {};
+  const st = { getItem: k => m[k] ?? null, setItem: (k, v) => { m[k] = v; } };
+  saveHighscores(st, [e(3, '2026-10-18')]);
+  assert.equal(loadHighscores(st)[0].score, 3);
+});
