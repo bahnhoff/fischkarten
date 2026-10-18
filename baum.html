@@ -10,6 +10,18 @@
 <main class="view tree">
   <p><a class="button small" href="index.html">← Menü</a></p>
   <h1>Bestimmungsbaum</h1>
+  <section class="key">
+    <div class="key-bar">
+      <a class="button small key-menu" href="index.html">← Menü</a>
+      <button id="key-back" class="small">← Schritt zurück</button>
+      <button id="key-restart" class="small">Neu starten</button>
+    </div>
+    <nav id="key-path" class="key-path" aria-label="Bisheriger Weg"></nav>
+    <h2 id="key-q" class="key-q"></h2>
+    <div id="key-options" class="key-options"></div>
+  </section>
+
+  <details class="overview"><summary>Übersicht als Liste</summary>
   <p class="sub">Gekürzt auf die 49 NRW-Prüfungsarten. Grundlage: Stahl, Brunken, Geiger, Herder (2025), Grafischer Bestimmungsschlüssel für die Süßwasserfische Deutschlands, Museum Koenig Bonn; ergänzt um Merkmale aus Prüfungsunterlagen. Krebse und Meeresfische stehen am Ende.</p>
 
   <details open><summary class="q">1. Kiemendeckel vorhanden?</summary>
@@ -107,7 +119,9 @@
     <div class="leaf">Scherenunterseite und Scherengelenk rot → Edelkrebs</div>
     <div class="leaf">Scherenspitzen orange mit dunklem Band, Dornen seitlich vor der Nackenfurche, rostrote Querbinden → Amerikanischer Flusskrebs (Kamberkrebs)</div>
   </details>
+  </details>
 </main>
 <script type="module" src="js/baum.js"></script>
+<script type="module" src="js/keyview.js"></script>
 </body>
 </html>
