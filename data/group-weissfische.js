@@ -10,8 +10,8 @@ export const GROUP = [
     img: 'img/zaehrte.jpg',
     path: `${WF} → Bauchkante gekielt → Afterflosse 11–23½ Strahlen → Seitenlinie vollständig → dunkler, nasenartiger Schnauzenfortsatz`,
     features: [
-      { text: 'Schnauze mit dunklem, nasenartigem Vorsprung (dunkler Schnauzenbug)', x: 5, y: 47, src: 'S25, SN-A' },
-      { text: 'Afterflosse lang, reicht fast bis zur Schwanzflosse (3/17–20 Strahlen)', x: 66, y: 80, src: 'SN-A' },
+      { text: 'Schnauze mit dunklem, nasenartigem Vorsprung (dunkler Schnauzenbug)', x: 4, y: 53, src: 'S25, SN-A' },
+      { text: 'Afterflosse lang, reicht fast bis zur Schwanzflosse (3/17–20 Strahlen)', x: 66, y: 72, src: 'SN-A' },
       { text: 'Lippen ohne Hornüberzug', src: 'SN-A' },
     ],
     similar: [
@@ -25,10 +25,10 @@ export const GROUP = [
     img: 'img/rotauge.jpg',
     path: `${WF} → Bauchkante gerundet → Maul endständig → Afterflosse konkav → 41–46 Seitenlinienschuppen`,
     features: [
-      { text: 'Maul endständig', x: 6, y: 54, src: 'SN-A, B11, S25' },
-      { text: 'Bauchflossen setzen genau unter …', x: 41, y: 75, src: 'SN-A, B11, MV' },
-      { text: '… dem Beginn der Rückenflosse an', x: 41.5, y: 29, src: 'SN-A, B11, MV' },
-      { text: 'Iris rot (Farbe nur zur Bestätigung)', x: 11.5, y: 48.5, src: 'SN-A, B11' },
+      { text: 'Maul endständig', x: 3.6, y: 57, src: 'SN-A, B11, S25' },
+      { text: 'Bauchflossen setzen genau unter …', x: 43.6, y: 72, src: 'SN-A, B11, MV' },
+      { text: '… dem Beginn der Rückenflosse an', x: 42.9, y: 25.5, src: 'SN-A, B11, MV' },
+      { text: 'Iris rot (Farbe nur zur Bestätigung)', x: 7.1, y: 57.3, src: 'SN-A, B11' },
       { text: 'Etwa 41–46 Schuppen in der Seitenlinie', src: 'S25, B11' },
     ],
     similar: [
@@ -44,9 +44,9 @@ export const GROUP = [
     img: 'img/moderlieschen.jpg',
     path: `${WF} → Bauchkante gekielt → Afterflosse 11–23½ Strahlen → Seitenlinie unvollständig`,
     features: [
-      { text: 'Seitenlinie kurz, nur über 7–12 Schuppen hinter dem Kiemendeckel (unvollständig)', src: 'B11, S25' },
-      { text: 'Maul oberständig, Maulspalte steil nach oben', x: 6, y: 42, src: 'B11' },
-      { text: 'Blau schimmernder Längsstreifen', x: 45, y: 41, src: 'B11' },
+      { text: 'Seitenlinie kurz, nur über 7–12 Schuppen hinter dem Kiemendeckel (unvollständig)', x: 26, y: 55, src: 'B11, S25' },
+      { text: 'Maul oberständig, Maulspalte steil nach oben', x: 5, y: 53, src: 'B11' },
+      { text: 'Blau schimmernder Längsstreifen', x: 65, y: 53, src: 'B11' },
       { text: 'Körper schlank (Bitterling hochrückig)', src: 'S25, B11' },
     ],
     similar: [
@@ -60,9 +60,9 @@ export const GROUP = [
     img: 'img/hasel.jpg',
     path: `${WF} → Bauchkante gerundet → Afterflosse konkav → Maul leicht unterständig → 8–10½ Afterflossenstrahlen`,
     features: [
-      { text: 'Maul unterständig, sehr enge Maulspalte, reicht nur bis vor das Auge', x: 4, y: 54, src: 'SN-A, S25, SN-Q 1211' },
-      { text: 'Afterflossenrand nach innen gewölbt (konkav)', x: 70.5, y: 80, src: 'SN-A, B06' },
-      { text: '48–54 Schuppen in der Seitenlinie', src: 'SN-A, B11' },
+      { text: 'Maul unterständig, sehr enge Maulspalte, reicht nur bis vor das Auge', x: 5, y: 56, src: 'SN-A, S25, SN-Q 1211' },
+      { text: 'Afterflossenrand nach innen gewölbt (konkav)', x: 68, y: 76, src: 'SN-A, B06' },
+      { text: '48–54 Schuppen in der Seitenlinie', x: 50, y: 52, src: 'SN-A, B11' },
     ],
     similar: [
       { name: 'Döbel', diff: 'Afterflossenrand nach außen gewölbt (konvex), Maul groß und endständig.' },
@@ -76,10 +76,10 @@ export const GROUP = [
     img: 'img/doebel.jpg',
     path: `${WF} → Bauchkante gerundet → Maul endständig → Afterflosse konvex → große Schuppen, Rückenflosse über den Bauchflossen`,
     features: [
-      { text: 'Maul endständig, groß und breit', x: 4, y: 52, src: 'SN-A, B06' },
-      { text: 'Afterflossenrand nach außen gewölbt (konvex)', x: 72, y: 79, src: 'SN-A, S25, B06' },
+      { text: 'Maul endständig, groß und breit', x: 5, y: 56, src: 'SN-A, B06' },
+      { text: 'Afterflossenrand nach außen gewölbt (konvex)', x: 68.5, y: 80, src: 'SN-A, S25, B06' },
       { text: 'Große, dunkel umrandete Schuppen (Netzmuster), 44–46 in der Seitenlinie', x: 50, y: 50, src: 'SN-A, B06' },
-      { text: 'Rückenflosse beginnt etwa über dem Bauchflossenansatz', x: 43.5, y: 31, src: 'S25' },
+      { text: 'Rückenflosse beginnt etwa über dem Bauchflossenansatz', x: 44, y: 30.5, src: 'S25' },
     ],
     similar: [
       { name: 'Hasel', diff: 'Afterflossenrand konkav, Maul unterständig mit enger Maulspalte.' },
@@ -95,8 +95,8 @@ export const GROUP = [
     img: 'img/aland.jpg',
     path: `${WF} → Bauchkante gerundet → Maul endständig → Afterflosse konkav → 55–62 Seitenlinienschuppen`,
     features: [
-      { text: 'Maul endständig, klein', x: 3, y: 58, src: 'SN-A, B06' },
-      { text: 'Afterflossenrand nach innen gewölbt (konkav)', x: 65.5, y: 89, src: 'SN-A, SN-Q 1187' },
+      { text: 'Maul endständig, klein', x: 4, y: 57, src: 'SN-A, B06' },
+      { text: 'Afterflossenrand nach innen gewölbt (konkav)', x: 69.8, y: 80, src: 'SN-A, SN-Q 1187' },
       { text: 'Schuppen deutlich kleiner, 55–60 in der Seitenlinie', x: 50, y: 57, src: 'SN-A, B11, S25' },
     ],
     similar: [
@@ -112,9 +112,9 @@ export const GROUP = [
     img: 'img/schneider.jpg',
     path: `${WF} → Bauchkante gekielt → Afterflosse 11–23½ Strahlen → Seitenlinie vollständig → Seitenlinie schwarz eingefasst`,
     features: [
-      { text: 'Seitenlinie mit schwarzen Pigmenten doppelt eingefasst', x: 50, y: 58.5, src: 'S25' },
-      { text: 'Ansätze von Brust-, Bauch- und Afterflosse rötlich', x: 25.5, y: 57, src: 'S25' },
-      { text: 'Maul endständig', x: 8.5, y: 49.5, src: 'FK' },
+      { text: 'Seitenlinie mit schwarzen Pigmenten doppelt eingefasst', x: 45, y: 58.5, src: 'S25' },
+      { text: 'Ansätze von Brust-, Bauch- und Afterflosse rötlich', x: 21, y: 61.5, src: 'S25' },
+      { text: 'Maul endständig', x: 4, y: 55, src: 'FK' },
     ],
     similar: [
       { name: 'Ukelei', diff: 'Maul oberständig mit steiler Maulspalte, Seitenlinie nicht schwarz eingefasst.' },
@@ -128,10 +128,10 @@ export const GROUP = [
     img: 'img/elritze.jpg',
     path: `${WF} → Bauchkante gerundet → Maul endständig → Afterflosse konvex → kleine Schuppen, Rückenflosse weit hinter den Bauchflossen`,
     features: [
-      { text: 'Bauchflossen setzen deutlich vor …', x: 40.5, y: 64, src: 'S25' },
-      { text: '… dem Beginn der Rückenflosse an', x: 45.5, y: 31, src: 'S25' },
-      { text: 'Dunkle Flecken bzw. Tupfen auf der Flanke', x: 55, y: 47, src: 'S25, WP' },
-      { text: 'Kleine Schuppen', src: 'S25, WP' },
+      { text: 'Bauchflossen setzen deutlich vor …', x: 41, y: 74, src: 'S25' },
+      { text: '… dem Beginn der Rückenflosse an', x: 46, y: 33, src: 'S25' },
+      { text: 'Dunkle Flecken bzw. Tupfen auf der Flanke', x: 53, y: 48, src: 'S25, WP' },
+      { text: 'Kleine Schuppen', x: 35.5, y: 66, src: 'S25, WP' },
     ],
     similar: [
       { name: 'Döbel (jung)', diff: 'Große Schuppen, Rückenflosse beginnt über den Bauchflossen.' },
@@ -144,11 +144,11 @@ export const GROUP = [
     img: 'img/rotfeder.jpg',
     path: `${WF} → Maul oberständig`,
     features: [
-      { text: 'Maul oberständig (schräg nach oben)', x: 7.5, y: 48, src: 'S25, SN-A, B11' },
-      { text: 'Bauchflossen setzen weiter vorn an …', x: 41, y: 73, src: 'SN-A, B11' },
-      { text: '… als die Rückenflosse beginnt (Rückenflosse nach hinten versetzt)', x: 51, y: 22, src: 'SN-A, B11' },
-      { text: 'Iris messingfarben bis goldgelb, nicht rot', x: 12.8, y: 43.5, src: 'SN-A' },
-      { text: 'Flossen kräftig blutrot (Farbe nur zur Bestätigung)', src: 'SN-A, B11' },
+      { text: 'Maul oberständig (schräg nach oben)', x: 4, y: 56, src: 'S25, SN-A, B11' },
+      { text: 'Bauchflossen setzen weiter vorn an …', x: 43, y: 84, src: 'SN-A, B11' },
+      { text: '… als die Rückenflosse beginnt (Rückenflosse nach hinten versetzt)', x: 49, y: 27, src: 'SN-A, B11' },
+      { text: 'Iris messingfarben bis goldgelb, nicht rot', x: 10.3, y: 56, src: 'SN-A' },
+      { text: 'Flossen kräftig blutrot (Farbe nur zur Bestätigung)', x: 66, y: 82, src: 'SN-A, B11' },
     ],
     similar: [
       { name: 'Rotauge', diff: 'Rückenflosse beginnt genau über den Bauchflossen, Maul endständig, Iris rot.' },
@@ -162,9 +162,9 @@ export const GROUP = [
     img: 'img/nase.jpg',
     path: `${WF} → Maul gerade, Unterlippe verhornt, Schnauze nasenartig`,
     features: [
-      { text: 'Schnauze nasenartig vorgewölbt', x: 3, y: 48.5, src: 'S25' },
-      { text: 'Maul stark unterständig, gerade, Unterlippe verhornt und scharfkantig', x: 5.5, y: 53, src: 'S25, SN-A, B11' },
-      { text: 'Afterflosse kurz (3/10–12 Strahlen)', x: 67, y: 85, src: 'SN-A' },
+      { text: 'Schnauze nasenartig vorgewölbt', x: 3.5, y: 52, src: 'S25' },
+      { text: 'Maul stark unterständig, gerade, Unterlippe verhornt und scharfkantig', x: 6, y: 57.5, src: 'S25, SN-A, B11' },
+      { text: 'Afterflosse kurz (3/10–12 Strahlen)', x: 70, y: 74, src: 'SN-A' },
       { text: 'Bauchfell schwarz (innen, nicht sichtbar)', src: 'SN-A' },
     ],
     similar: [
@@ -178,10 +178,10 @@ export const GROUP = [
     img: 'img/ukelei.jpg',
     path: `${WF} → Bauchkante gekielt → Afterflosse 17–20½ Strahlen`,
     features: [
-      { text: 'Maul oberständig mit steiler Maulspalte', x: 4, y: 42, src: 'B11, MV' },
-      { text: 'Großes Auge', x: 12.5, y: 40, src: 'B11' },
-      { text: 'Bauchkante zwischen Bauch- und Afterflosse scharf und schuppenlos', src: 'B11, S25' },
-      { text: 'Afterflosse beginnt unter der Rückenflosse', x: 59.5, y: 68, src: 'B11' },
+      { text: 'Maul oberständig mit steiler Maulspalte', x: 4.5, y: 51, src: 'B11, MV' },
+      { text: 'Großes Auge', x: 9.5, y: 48.5, src: 'B11' },
+      { text: 'Bauchkante zwischen Bauch- und Afterflosse scharf und schuppenlos', x: 51, y: 72, src: 'B11, S25' },
+      { text: 'Afterflosse beginnt unter der Rückenflosse', x: 54.5, y: 71, src: 'B11' },
     ],
     similar: [
       { name: 'Schneider', diff: 'Seitenlinie schwarz doppelt eingefasst, Maul endständig.' },
@@ -230,8 +230,8 @@ export const GROUP = [
     img: 'img/bitterling.jpg',
     path: 'keine Fettflosse → eine Rückenflosse → keine Barteln → bläulich graues Längsband auf dem Schwanzstiel',
     features: [
-      { text: 'Hochrückig, keine Barteln', x: 40, y: 16, src: 'S25, B11' },
-      { text: 'Bläulich graues bis blaugrünes Längsband auf dem Schwanzstiel', x: 72, y: 48.5, src: 'S25' },
+      { text: 'Hochrückig, keine Barteln', x: 40, y: 22.5, src: 'S25, B11' },
+      { text: 'Bläulich graues bis blaugrünes Längsband auf dem Schwanzstiel', x: 68, y: 50.5, src: 'S25' },
       { text: 'Seitenlinie nur über 5–6 Schuppen', src: 'S25' },
     ],
     similar: [
@@ -245,9 +245,9 @@ export const GROUP = [
     img: 'img/rapfen.jpg',
     path: `${WF} → Bauchkante gekielt → Afterflosse 11–23½ Strahlen → Seitenlinie vollständig → Höcker auf dem Unterkiefer, Maulspalte bis unter das Auge`,
     features: [
-      { text: 'Maul oberständig, extrem weite Maulspalte bis unter das Auge', x: 7.5, y: 54.5, src: 'B11, S25' },
+      { text: 'Maul oberständig, extrem weite Maulspalte bis unter das Auge', x: 7, y: 58.5, src: 'B11, S25' },
       { text: 'Höcker auf dem Unterkiefer', src: 'S25' },
-      { text: '65–73 Schuppen in der Seitenlinie (kleiner als beim Döbel)', src: 'B11' },
+      { text: '65–73 Schuppen in der Seitenlinie (kleiner als beim Döbel)', x: 45, y: 50, src: 'B11' },
     ],
     similar: [
       { name: 'Döbel', diff: 'Größere Schuppen (44–46 in der Seitenlinie).' },

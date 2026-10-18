@@ -40,9 +40,9 @@ export const GROUP = [
     img: 'img/flussbarsch.jpg',
     path: 'keine Fettflosse → zwei Rückenflossen → keine Kinnbartel, Schuppen → Echte Barsche → Rückenflossen getrennt → schwarzer Fleck',
     features: [
-      { text: 'Zwei getrennte Rückenflossen', x: 61.7, y: 29.4, src: 'S25' },
-      { text: 'Schwarzer Fleck am Hinterende der ersten Rückenflosse', x: 56, y: 29.7, src: 'S25, SN-Q 1297' },
-      { text: '5–7 dunkle Querbinden auf der Flanke', x: 38.8, y: 46.4, src: 'S25, B11, SN-Q 1303' },
+      { text: 'Zwei getrennte Rückenflossen', x: 70.8, y: 31.9, src: 'S25' },
+      { text: 'Schwarzer Fleck am Hinterende der ersten Rückenflosse', x: 67.3, y: 28.3, src: 'S25, SN-Q 1297' },
+      { text: '5–7 dunkle Querbinden auf der Flanke', src: 'S25, B11, SN-Q 1303' },
     ],
     similar: [
       { name: 'Zander', diff: 'Erste Rückenflosse ohne schwarzen Fleck, dafür einzeln stehende Hundszähne.' },
@@ -56,10 +56,10 @@ export const GROUP = [
     img: 'img/zander.jpg',
     path: 'keine Fettflosse → zwei Rückenflossen → Echte Barsche → Rückenflossen getrennt → kein Fleck → Maul endständig → große Eckzähne',
     features: [
-      { text: 'Zwei getrennte Rückenflossen', x: 49.6, y: 34.6, src: 'S25' },
-      { text: 'Erste Rückenflosse ohne schwarzen Fleck, Punkte wirken wie Längsstreifen', x: 38.3, y: 25.8, src: 'S25, B11' },
-      { text: 'Einzeln stehende Hundszähne, Maulspalte bis unter das Auge', x: 7.9, y: 54.8, src: 'S25, B11' },
-      { text: '8–10 Querbinden, bei Erwachsenen blasser', x: 64.2, y: 48.3, src: 'S25, B11' },
+      { text: 'Zwei getrennte Rückenflossen', x: 51, y: 25.3, src: 'S25' },
+      { text: 'Erste Rückenflosse ohne schwarzen Fleck, Punkte wirken wie Längsstreifen', x: 39.2, y: 14.3, src: 'S25, B11' },
+      { text: 'Einzeln stehende Hundszähne, Maulspalte bis unter das Auge', x: 5.4, y: 54.6, src: 'S25, B11' },
+      { text: '8–10 Querbinden, bei Erwachsenen blasser', x: 50, y: 47.4, src: 'S25, B11' },
     ],
     similar: [
       { name: 'Flussbarsch', diff: 'Schwarzer Fleck am Hinterende der ersten Rückenflosse, 5–7 kräftige Querbinden.' },
@@ -72,10 +72,10 @@ export const GROUP = [
     img: 'img/kaulbarsch.jpg',
     path: 'keine Fettflosse → zweiteilige Rückenflosse → Echte Barsche → Rückenflosse zusammenhängend',
     features: [
-      { text: 'Harte und weiche Rückenflosse zusammenhängend (durch Flossenhaut verbunden)', x: 56.7, y: 26.5, src: 'S25, MV' },
-      { text: 'Viele kleine, unregelmäßige Flecken, auch auf Rücken- und Schwanzflosse', x: 38.3, y: 18.8, src: 'S25, B11, SN-Q 1303' },
-      { text: 'Flacherer Nacken', x: 19.2, y: 32.5, src: 'S25' },
-      { text: 'Kiemendeckel läuft spitz aus', src: 'S25, B11' },
+      { text: 'Harte und weiche Rückenflosse zusammenhängend (durch Flossenhaut verbunden)', x: 58.75, y: 31.5, src: 'S25, MV' },
+      { text: 'Viele kleine, unregelmäßige Flecken, auch auf Rücken- und Schwanzflosse', x: 40, y: 17.4, src: 'S25, B11, SN-Q 1303' },
+      { text: 'Flacherer Nacken', x: 16.7, y: 43.4, src: 'S25' },
+      { text: 'Kiemendeckel läuft spitz aus', x: 25, y: 45.3, src: 'S25, B11' },
     ],
     similar: [
       { name: 'Flussbarsch', diff: 'Zwei getrennte Rückenflossen, dunkle Querbinden statt kleiner Flecken.' },
@@ -88,8 +88,8 @@ export const GROUP = [
     img: 'img/makrele.jpg',
     path: 'Meeresfisch (nicht im Süßwasserschlüssel) → Flössel hinter Rücken- und Afterflosse',
     features: [
-      { text: 'Je 5 Flössel hinter der zweiten Rückenflosse und hinter der Afterflosse', x: 77.9, y: 52.7, src: 'WP' },
-      { text: 'Querstreifen auf dem Rücken', x: 54.2, y: 39.8, src: 'WP' },
+      { text: 'Je 5 Flössel hinter der zweiten Rückenflosse und hinter der Afterflosse', x: 75.4, y: 37.6, src: 'WP' },
+      { text: 'Querstreifen auf dem Rücken', x: 43.3, y: 36.9, src: 'WP' },
     ],
     similar: [],
   },
@@ -101,7 +101,7 @@ export const GROUP = [
     path: 'keine Fettflosse → keine Einzelstacheln vor der Rückenflosse → Körper asymmetrisch abgeflacht',
     features: [
       { text: 'Keine Fettflosse, keine einzelnen Stacheln vor der Rückenflosse', src: 'S25' },
-      { text: 'Körper asymmetrisch abgeflacht (Plattfisch)', x: 54.2, y: 58.7, src: 'S25' },
+      { text: 'Körper asymmetrisch abgeflacht (Plattfisch)', x: 45.8, y: 56.3, src: 'S25' },
     ],
     similar: [],
   },
@@ -128,7 +128,7 @@ export const GROUP = [
     img: 'img/edelkrebs.jpg',
     path: 'Krebs → Scheren vergleichen',
     features: [
-      { text: 'Scherengelenk rot', x: 43.3, y: 60.9, src: 'WP, SN-Q 2001' },
+      { text: 'Scherengelenk rot', x: 25.4, y: 11.6, src: 'WP, SN-Q 2001' },
       { text: 'Scherenunterseite rot (von oben nicht zu sehen)', src: 'WP, SN-Q 2001' },
     ],
     similar: [

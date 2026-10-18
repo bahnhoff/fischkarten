@@ -7,9 +7,9 @@ export const GROUP = [
     img: 'img/schleie.jpg',
     path: 'keine Fettflosse → eine Rückenflosse → 1 Bartelpaar → sehr kleine Schuppen, hochrückig → Schleie',
     features: [
-      { text: 'Ein Bartelpaar (zwei kurze Barteln) am Maulwinkel', x: 7.3, y: 58.9, src: 'S25, WP' },
+      { text: 'Ein Bartelpaar (zwei kurze Barteln) am Maulwinkel', x: 6.2, y: 58.3, src: 'S25, WP' },
       { text: 'Sehr kleine Schuppen (96–115 in der Seitenlinie), dicke schleimige Haut', x: 52, y: 60, src: 'S25, WP' },
-      { text: 'Schwanzflosse gerade abschließend, hoher Schwanzstiel', x: 96.5, y: 56, src: 'WP' },
+      { text: 'Schwanzflosse gerade abschließend, hoher Schwanzstiel', x: 95.5, y: 56, src: 'WP' },
       { text: 'Färbung gold- bis grünbraun', src: 'S25' },
     ],
     similar: [
@@ -23,9 +23,9 @@ export const GROUP = [
     img: 'img/gruendling.jpg',
     path: 'keine Fettflosse → eine Rückenflosse → 1 Bartelpaar → langgestreckt, große Schuppen → Gründling',
     features: [
-      { text: 'Ein Bartelpaar am Maulwinkel', x: 7.2, y: 59.4, src: 'S25' },
-      { text: 'Maul unterständig', x: 3, y: 51, src: 'S25' },
-      { text: 'Reihe dunkler Flecken entlang der Seitenlinie', x: 50, y: 48.5, src: 'FK' },
+      { text: 'Ein Bartelpaar am Maulwinkel', x: 7.3, y: 61.7, src: 'S25' },
+      { text: 'Maul unterständig', x: 3.3, y: 56, src: 'S25' },
+      { text: 'Reihe dunkler Flecken entlang der Seitenlinie', x: 50, y: 52, src: 'FK' },
       { text: 'Langgestreckt, braungrau, 39–44 Seitenlinienschuppen', src: 'S25' },
     ],
     similar: [
@@ -41,9 +41,9 @@ export const GROUP = [
     img: 'img/barbe.jpg',
     path: 'keine Fettflosse → eine Rückenflosse → 2 Bartelpaare → kurze Rückenflosse → Barbe',
     features: [
-      { text: '4 Barteln (2 Paare) an Oberlippe und Maulwinkel', x: 10.8, y: 65.8, src: 'S25, SN-Q' },
-      { text: 'Maul unterständig (Nahrung am Grund)', x: 6.3, y: 56.9, src: 'B11, B06' },
-      { text: 'Rückenflosse kurz (8½ verzweigte Strahlen)', x: 50, y: 23, src: 'S25' },
+      { text: '4 Barteln (2 Paare) an Oberlippe und Maulwinkel', x: 7.3, y: 64.2, src: 'S25, SN-Q' },
+      { text: 'Maul unterständig (Nahrung am Grund)', x: 4.2, y: 56.7, src: 'B11, B06' },
+      { text: 'Rückenflosse kurz (8½ verzweigte Strahlen)', x: 50, y: 22, src: 'S25' },
     ],
     similar: [
       { name: 'Gründling', diff: 'Nur ein Bartelpaar (2 Barteln).' },
@@ -58,8 +58,8 @@ export const GROUP = [
     img: 'img/karausche.jpg',
     path: 'keine Fettflosse → eine Rückenflosse → keine Barteln, lange Rückenflosse → Karpfenfisch → Rückenflossenrand konvex → Karausche',
     features: [
-      { text: 'Keine Barteln', x: 7.9, y: 56.1, src: 'B11, SN-Q' },
-      { text: 'Rückenflossenrand nach außen gewölbt (konvex)', x: 51.7, y: 12.4, src: 'S25, B11, SN-A' },
+      { text: 'Keine Barteln', x: 3.3, y: 60, src: 'B11, SN-Q' },
+      { text: 'Rückenflossenrand nach außen gewölbt (konvex)', x: 54.2, y: 14, src: 'S25, B11, SN-A' },
       { text: 'Jungfische oft mit schwarzem Fleck auf der Schwanzwurzel', src: 'S25, B11' },
       { text: '32–35 Schuppen in der Seitenlinie', src: 'B11' },
     ],
@@ -75,8 +75,8 @@ export const GROUP = [
     img: 'img/giebel.jpg',
     path: 'keine Fettflosse → eine Rückenflosse → keine Barteln, lange Rückenflosse → Karpfenfisch → Rückenflossenrand konkav → silbrig-braun → Giebel',
     features: [
-      { text: 'Keine Barteln', x: 3, y: 46, src: 'B11, S25' },
-      { text: 'Rückenflossenrand nach innen gekrümmt (konkav)', x: 53.3, y: 22.9, src: 'S25, B11' },
+      { text: 'Keine Barteln', x: 3.5, y: 50, src: 'B11, S25' },
+      { text: 'Rückenflossenrand nach innen gekrümmt (konkav)', x: 57.5, y: 16.2, src: 'S25, B11' },
       { text: 'Färbung silbrig-braun', src: 'S25' },
       { text: '27–31 Schuppen in der Seitenlinie (Sachsen: 27–33)', src: 'B11, SN-A' },
       { text: 'Bauchfell schwarz (innen, auf dem Bild nicht sichtbar)', src: 'S25, B11' },
@@ -143,9 +143,9 @@ export const GROUP = [
     img: 'img/steinbeisser.jpg',
     path: 'keine Fettflosse → eine Rückenflosse → 6 oder mehr Barteln → Punkte und Flecken → Unterlippe mit 0–2 kurzen Auswüchsen → Steinbeißer',
     features: [
-      { text: '6 kurze Barteln: 4 am Oberkiefer, 2 in den Mundwinkeln', x: 3.3, y: 51.5, src: 'SN-A' },
-      { text: 'Sandfarben, eine Reihe kleiner Punkte und eine Reihe großer Flecken', x: 45, y: 61.8, src: 'SN-A, S25' },
-      { text: 'Schwanzflosse leicht nach außen gebogen', x: 98.3, y: 70.5, src: 'SN-A' },
+      { text: '6 kurze Barteln: 4 am Oberkiefer, 2 in den Mundwinkeln', x: 4.2, y: 61, src: 'SN-A' },
+      { text: 'Sandfarben, eine Reihe kleiner Punkte und eine Reihe großer Flecken', x: 45, y: 54.6, src: 'SN-A, S25' },
+      { text: 'Schwanzflosse leicht nach außen gebogen', x: 95.8, y: 53.9, src: 'SN-A' },
       { text: 'Körper seitlich stark zusammengedrückt', src: 'SN-A' },
       { text: 'Beweglicher Dorn unter dem Auge (Beleg unsicher)', src: 'SN-A' },
     ],
@@ -177,10 +177,10 @@ export const GROUP = [
     img: 'img/groppe.jpg',
     path: 'keine Fettflosse → keine Einzelstacheln → zwei Rückenflossen → keine Kinnbartel → keine Schuppen → Groppe',
     features: [
-      { text: 'Zwei Rückenflossen', x: 39.2, y: 12.5, src: 'S25' },
+      { text: 'Zwei Rückenflossen', x: 39, y: 18, src: 'S25' },
       { text: 'Keine Schuppen', src: 'S25, B11' },
-      { text: 'Breiter Kopf, sehr große Brustflossen', x: 37.5, y: 50, src: 'S25, B11, WP' },
-      { text: 'Bauchflossen getrennt (keine Saugscheibe)', x: 29.2, y: 77.3, src: 'S25' },
+      { text: 'Breiter Kopf, sehr große Brustflossen', x: 40, y: 52, src: 'S25, B11, WP' },
+      { text: 'Bauchflossen getrennt (keine Saugscheibe)', x: 36, y: 82, src: 'S25' },
     ],
     similar: [
       { name: 'Kessler-Grundel', diff: 'Beschuppt, Bauchflossen zur Saugscheibe verwachsen, keine Seitenlinie.' },
@@ -194,8 +194,8 @@ export const GROUP = [
     img: 'img/dreistachliger-stichling.jpg',
     path: 'keine Fettflosse → einzelne Stacheln vor der Rückenflosse → Stichlinge → 2–3 Stacheln',
     features: [
-      { text: 'Einzelne freie Stacheln vor der Rückenflosse (Stichlinge)', x: 40.4, y: 12.9, src: 'S25' },
-      { text: 'Nur 2–3 freie Stacheln', x: 49, y: 22.2, src: 'S25, FK' },
+      { text: 'Einzelne freie Stacheln vor der Rückenflosse (Stichlinge)', x: 34.6, y: 27, src: 'S25' },
+      { text: 'Nur 2–3 freie Stacheln', x: 42.8, y: 14.5, src: 'S25, FK' },
     ],
     similar: [
       { name: 'Zwergstichling', diff: '7–11 freie Stacheln vor der Rückenflosse.' },
@@ -209,8 +209,8 @@ export const GROUP = [
     img: 'img/zwergstichling.jpg',
     path: 'keine Fettflosse → einzelne Stacheln vor der Rückenflosse → Stichlinge → 7–11 Stacheln',
     features: [
-      { text: 'Einzelne freie Stacheln vor der Rückenflosse (Stichlinge)', x: 34.3, y: 8.6, src: 'S25' },
-      { text: '7–11 freie Stacheln', x: 46.7, y: 17.2, src: 'S25, FK' },
+      { text: 'Einzelne freie Stacheln vor der Rückenflosse (Stichlinge)', x: 33.6, y: 24, src: 'S25' },
+      { text: '7–11 freie Stacheln', x: 42.5, y: 25, src: 'S25, FK' },
     ],
     similar: [
       { name: 'Dreistachliger Stichling', diff: 'Nur 2–3 freie Stacheln vor der Rückenflosse.' },

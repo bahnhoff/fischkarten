@@ -9,10 +9,10 @@ export const GROUP = [
     img: 'img/bachforelle.jpg',
     path: `${LACHSFISCHE} → Schwanzflosse ohne oder mit wenigen Punkten → Forelle`,
     features: [
-      { text: 'Fettflosse vorhanden (Lachsfisch)', x: 74, y: 36, src: 'S25' },
-      { text: 'Maulspalte reicht bis unter die Augenmitte oder weiter', x: 12.5, y: 62, src: 'S25' },
-      { text: 'Schwanzflosse ohne oder mit nur wenigen Punkten', x: 91, y: 53, src: 'S25, B11' },
-      { text: 'Rote, hell umrandete Flecken neben schwarzen', x: 43.6, y: 62, src: 'B11' },
+      { text: 'Fettflosse vorhanden (Lachsfisch)', x: 73.3, y: 37.4, src: 'S25' },
+      { text: 'Maulspalte reicht bis unter die Augenmitte oder weiter', x: 12.9, y: 61.3, src: 'S25' },
+      { text: 'Schwanzflosse ohne oder mit nur wenigen Punkten', x: 90.8, y: 53.5, src: 'S25, B11' },
+      { text: 'Rote, hell umrandete Flecken neben schwarzen', x: 46.7, y: 53.9, src: 'B11' },
     ],
     similar: [
       { name: 'Regenbogenforelle', diff: 'Viele schwarze Punkte auf der Schwanzflosse, rosaroter Streifen auf der Flanke.' },
@@ -45,11 +45,11 @@ export const GROUP = [
     img: 'img/lachs.jpg',
     path: `${LACHSFISCHE} → Schwanzflosse ohne oder mit wenigen Punkten → Lachs`,
     features: [
-      { text: 'Maulspalte reicht höchstens bis unter die Augenmitte', x: 8.75, y: 52.5, src: 'S25' },
-      { text: 'Kiemendeckel gerundet', x: 22, y: 50, src: 'B11' },
-      { text: 'Punkte meist oberhalb der Seitenlinie', x: 33, y: 43, src: 'S25, B11' },
-      { text: 'Schlanke Schwanzwurzel', x: 85, y: 46, src: 'S25, B11' },
-      { text: 'Schwanzflosse deutlich eingebuchtet', x: 92, y: 51, src: 'S25, B11' },
+      { text: 'Maulspalte reicht höchstens bis unter die Augenmitte', x: 8.6, y: 63, src: 'S25' },
+      { text: 'Kiemendeckel gerundet', x: 19.3, y: 61.4, src: 'B11' },
+      { text: 'Punkte meist oberhalb der Seitenlinie', x: 39.2, y: 49.9, src: 'S25, B11' },
+      { text: 'Schlanke Schwanzwurzel', x: 82.5, y: 55, src: 'S25, B11' },
+      { text: 'Schwanzflosse deutlich eingebuchtet', x: 94, y: 57.5, src: 'S25, B11' },
     ],
     similar: [
       { name: 'Meerforelle', diff: 'Breite Schwanzwurzel, fast gerade Schwanzflosse, Punkte auch unterhalb der Seitenlinie.' },
@@ -63,9 +63,9 @@ export const GROUP = [
     img: 'img/regenbogenforelle.jpg',
     path: `${LACHSFISCHE} → Schwanzflosse mit vielen schwarzen Punkten`,
     features: [
-      { text: 'Schwanzflosse mit vielen kleinen schwarzen Punkten', x: 91, y: 54, src: 'S25, B11' },
-      { text: 'Punkte auch auf Rücken- und Fettflosse', x: 49, y: 20, src: 'B11' },
-      { text: 'Rosaroter Streifen auf der Flanke', x: 36, y: 51, src: 'B11, SN-Q' },
+      { text: 'Schwanzflosse mit vielen kleinen schwarzen Punkten', x: 90.8, y: 51, src: 'S25, B11' },
+      { text: 'Punkte auch auf Rücken- und Fettflosse', x: 51.7, y: 18, src: 'B11' },
+      { text: 'Rosaroter Streifen auf der Flanke', x: 37.5, y: 51, src: 'B11, SN-Q' },
     ],
     similar: [
       { name: 'Bachforelle', diff: 'Schwanzflosse ohne oder mit nur wenigen Punkten, kein rosaroter Streifen.' },
@@ -79,8 +79,8 @@ export const GROUP = [
     path: `${LACHSFISCHE} → Seitenlinienschuppen elliptisch (Saibling) → Kiefer reicht weit hinter das Auge`,
     features: [
       { text: 'Seitenlinienschuppen elliptisch, wenig überlappend', src: 'S25' },
-      { text: 'Maulspalte reicht bis hinter das Auge', x: 9, y: 30, src: 'S25, B11' },
-      { text: 'Bauchseitige Flossen mit weißem, dahinter schwarz abgesetztem Saum', x: 43, y: 87, src: 'B11, S25, SN-Q' },
+      { text: 'Maulspalte reicht bis hinter das Auge', x: 17.6, y: 63.5, src: 'S25, B11' },
+      { text: 'Bauchseitige Flossen mit weißem, dahinter schwarz abgesetztem Saum', x: 32.5, y: 64.3, src: 'B11, S25, SN-Q' },
     ],
     similar: [
       { name: 'Bachforelle', diff: 'Keine weiß-schwarz gesäumten Bauch-, Brust- und Afterflossen.' },
@@ -138,7 +138,7 @@ export const GROUP = [
     img: 'img/aal.jpg',
     path: 'Kiemendeckel vorhanden → Schwanzflosse homocerk → Rücken-, Schwanz- und Afterflosse zu einem Saum verwachsen',
     features: [
-      { text: 'Rücken-, Schwanz- und Afterflosse zu einem Saum verwachsen', x: 65.8, y: 57.7, src: 'S25' },
+      { text: 'Rücken-, Schwanz- und Afterflosse zu einem Saum verwachsen', x: 91.3, y: 91, src: 'S25' },
       { text: 'Keine Bauchflossen', src: 'MV' },
     ],
     similar: [
@@ -168,8 +168,8 @@ export const GROUP = [
     path: 'Kiemendeckel vorhanden → Flossen getrennt → Seitenlinie fehlt → Bauchflossen getrennt (Heringsartige)',
     features: [
       { text: 'Seitenlinie fehlt', src: 'S25' },
-      { text: 'Bauchflossen getrennt (nicht zur Saugscheibe verwachsen)', x: 44.2, y: 83, src: 'S25' },
-      { text: 'Großer dunkler Fleck hinter dem Kiemendeckel, manchmal bis zu 6 kleinere dahinter', x: 25, y: 47, src: 'FK' },
+      { text: 'Bauchflossen getrennt (nicht zur Saugscheibe verwachsen)', x: 42.1, y: 85.3, src: 'S25' },
+      { text: 'Großer dunkler Fleck hinter dem Kiemendeckel, manchmal bis zu 6 kleinere dahinter', x: 24.3, y: 41.7, src: 'FK' },
     ],
     similar: [],
   },
