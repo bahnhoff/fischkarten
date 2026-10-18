@@ -5,7 +5,7 @@ Die Bilder stammen von Wikimedia Commons und anglerschmiede.de. Präfix der Comm
 | Art | Datei | Urheber | Lizenz | Bearbeitung |
 |---|---|---|---|---|
 | Zährte | https://cdn.anglerschmiede.de/wp-content/uploads/Zaehrte.png | Anglerschmiede (anglerschmiede.de/lexikon) | nicht angegeben, auf Wunsch des Benutzers verwendet | Hintergrund entfernt |
-| Rotauge | https://cdn.anglerschmiede.de/wp-content/uploads/Rotauge.jpeg | Anglerschmiede (anglerschmiede.de/lexikon) | nicht angegeben, auf Wunsch des Benutzers verwendet | unteren Fisch ausgeschnitten, Hintergrund entfernt, gespiegelt |
+| Rotauge | https://fv-wangen.de/media/original_images/rotauge.png (Seite: https://fv-wangen.de/fischarten/rotauge/) | Fischereiverein Wangen | nicht angegeben, auf Wunsch des Benutzers verwendet | ersetzt; Hintergrund entfernt |
 | Moderlieschen | https://cdn.anglerschmiede.de/wp-content/uploads/Moderlieschen.png | Anglerschmiede (anglerschmiede.de/lexikon) | nicht angegeben, auf Wunsch des Benutzers verwendet | Hintergrund entfernt |
 | Hasel | https://cdn.anglerschmiede.de/wp-content/uploads/Hasel.png | Anglerschmiede (anglerschmiede.de/lexikon) | nicht angegeben, auf Wunsch des Benutzers verwendet | Hintergrund entfernt |
 | Döbel | https://cdn.anglerschmiede.de/wp-content/uploads/Aitel.png | Anglerschmiede (anglerschmiede.de/lexikon) | nicht angegeben, auf Wunsch des Benutzers verwendet | Hintergrund entfernt |

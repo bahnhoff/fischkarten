@@ -25,10 +25,10 @@ export const GROUP = [
     img: 'img/rotauge.jpg',
     path: `${WF} → Bauchkante gerundet → Maul endständig → Afterflosse konkav → 41–46 Seitenlinienschuppen`,
     features: [
-      { text: 'Maul endständig', x: 3.6, y: 57, src: 'SN-A, B11, S25' },
-      { text: 'Bauchflossen setzen genau unter …', x: 43.6, y: 72, src: 'SN-A, B11, MV' },
-      { text: '… dem Beginn der Rückenflosse an', x: 42.9, y: 25.5, src: 'SN-A, B11, MV' },
-      { text: 'Iris rot (Farbe nur zur Bestätigung)', x: 7.1, y: 57.3, src: 'SN-A, B11' },
+      { text: 'Maul endständig', x: 3.3, y: 54, src: 'SN-A, B11, S25' },
+      { text: 'Bauchflossen setzen genau unter …', x: 45.4, y: 75, src: 'SN-A, B11, MV' },
+      { text: '… dem Beginn der Rückenflosse an', x: 45.4, y: 26, src: 'SN-A, B11, MV' },
+      { text: 'Iris rot (Farbe nur zur Bestätigung)', x: 11.7, y: 52, src: 'SN-A, B11' },
       { text: 'Etwa 41–46 Schuppen in der Seitenlinie', src: 'S25, B11' },
     ],
     similar: [
