@@ -1,13 +1,9 @@
 // Macht im Bestimmungsbaum die Fischnamen am Ende der Zweige zu Links auf die Karte
 // und merkt sich, welche Zweige aufgeklappt sind.
 import { SPECIES } from '../data/species.js';
+import { speciesByName } from './names.js';
 
 const OPEN_KEY = 'fischkarten.baum.open';
-
-// "Brasse" passt auf "Brasse (Brachse)", "Groppe" auf "Groppe (Mühlkoppe)".
-export function speciesForLeaf(leafName, species) {
-  return species.find(s => s.name === leafName || s.name.startsWith(`${leafName} (`)) || null;
-}
 
 function linkLeaves() {
   for (const leaf of document.querySelectorAll('.leaf')) {
@@ -15,7 +11,7 @@ function linkLeaves() {
     const cut = text.lastIndexOf('→ ');
     if (cut < 0) continue;
     const name = text.slice(cut + 2).trim();
-    const s = speciesForLeaf(name, SPECIES);
+    const s = speciesByName(name, SPECIES);
     if (!s) continue;
     const a = document.createElement('a');
     a.href = `index.html?id=${encodeURIComponent(s.id)}&merkmale=1&name=1&von=baum`;

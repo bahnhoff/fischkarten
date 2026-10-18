@@ -1,6 +1,7 @@
 import { SPECIES } from '../data/species.js';
 import { activeSpecies, nextSpecies, loadHidden, saveHidden, drawExam, examPassed } from './deck.js';
 import { drawArrows } from './card.js';
+import { speciesForSimilar } from './names.js';
 
 const $ = id => document.getElementById(id);
 const storage = (() => { try { return window.localStorage; } catch { return null; } })();
@@ -56,11 +57,28 @@ function renderCard(species) {
   $('similar').hidden = true;
   $('similar').replaceChildren(...similar.map(s => {
     const li = document.createElement('li');
-    const b = document.createElement('strong');
-    b.textContent = s.name;
-    li.append(b, `: ${s.diff}`);
+    const targets = speciesForSimilar(s.name, SPECIES);
+    if (targets.length === 0) {
+      const b = document.createElement('strong');
+      b.textContent = s.name;
+      li.append(b);
+    }
+    targets.forEach((t, i) => {
+      if (i > 0) li.append(' / ');
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'similar-name';
+      b.dataset.id = t.id;
+      b.textContent = targets.length > 1 ? t.name : s.name;
+      b.title = 'Zum Vergleich unter dem Bild anzeigen';
+      b.addEventListener('click', () => toggleCompare(t, s.diff));
+      li.append(b);
+    });
+    li.append(`: ${s.diff}`);
     return li;
   }));
+  $('compare').replaceChildren();
+  $('card').classList.remove('has-compare');
 
   $('hide-wrap').hidden = inExam;
   $('hide-current').checked = state.hidden.has(species.id);
@@ -68,6 +86,34 @@ function renderCard(species) {
   $('btn-next').hidden = inExam;
   $('progress').textContent = inExam ? `Karte ${state.exam.index + 1} von ${state.exam.cards.length}` : '';
   show('card');
+}
+
+// Vergleichsbilder unter dem Hauptbild ein- und ausblenden.
+function toggleCompare(species, diff) {
+  const box = $('compare');
+  const existing = box.querySelector(`[data-id="${species.id}"]`);
+  if (existing) existing.remove();
+  else {
+    const fig = document.createElement('figure');
+    fig.className = 'compare-item';
+    fig.dataset.id = species.id;
+    fig.title = 'Klicken entfernt den Vergleich';
+    const img = document.createElement('img');
+    img.src = species.img;
+    img.alt = species.name;
+    const cap = document.createElement('figcaption');
+    const b = document.createElement('strong');
+    b.textContent = species.name;
+    cap.append(b, ` (bis ${species.length} cm): ${diff}`);
+    fig.append(img, cap);
+    fig.addEventListener('click', () => toggleCompare(species, diff));
+    box.append(fig);
+  }
+  const active = new Set([...box.children].map(c => c.dataset.id));
+  for (const b of document.querySelectorAll('.similar-name')) b.classList.toggle('active', active.has(b.dataset.id));
+  $('card').classList.toggle('has-compare', active.size > 0);
+  redrawArrows();
+  if (!existing) box.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function toggleFeatures() {
