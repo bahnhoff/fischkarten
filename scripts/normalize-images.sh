@@ -12,7 +12,9 @@ for f in raw/*; do
     *.svg|*.png)
       # Mit Chrome auf weißem Hintergrund rendern (Transparenz wird weiß), Höhe nach Seitenverhältnis
       if [ "${f##*.}" = svg ]; then
-        read -r w h < <(grep -o 'viewBox="[^"]*"' "$f" | head -1 | tr -d '"' | awk '{print $3, $4}')
+        tag=$(tr '\n' ' ' < "$f" | grep -o '<svg[^>]*>' | head -1)
+        w=$(echo "$tag" | grep -oE ' width="[0-9.]+' | grep -oE '[0-9.]+$'); h=$(echo "$tag" | grep -oE ' height="[0-9.]+' | grep -oE '[0-9.]+$')
+        if [ -z "$w" ]; then read -r w h < <(echo "$tag" | grep -o 'viewBox="[^"]*"' | tr -d '"' | awk '{print $3, $4}'); fi
       else
         w=$(sips -g pixelWidth "$f" | awk '/pixelWidth/{print $2}'); h=$(sips -g pixelHeight "$f" | awk '/pixelHeight/{print $2}')
       fi
