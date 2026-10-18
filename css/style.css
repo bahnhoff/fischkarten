@@ -134,3 +134,4 @@ h1 { margin: 0 0 0.3em; font-size: 2rem; }
   .actions #btn-next { flex: 1; }
   .panel { gap: 0.4rem; }
 }
+.tree .leaf a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }

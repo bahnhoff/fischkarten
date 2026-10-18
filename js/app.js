@@ -180,6 +180,15 @@ goHome();
 const params = new URLSearchParams(location.search);
 const direct = SPECIES.find(s => s.id === params.get('id'));
 if (direct) {
+  if (params.get('von') === 'baum') {
+    // Von der Baumseite gekommen: Zurück führt an dieselbe Stelle im Baum.
+    $('btn-home').textContent = '← Bestimmungsbaum';
+    $('btn-home').removeEventListener('click', goHome);
+    $('btn-home').addEventListener('click', () => {
+      if (document.referrer.includes('baum.html') && history.length > 1) history.back();
+      else location.href = 'baum.html';
+    });
+  }
   renderCard(direct);
   if (params.get('merkmale')) toggleFeatures();
   if (params.get('name')) revealName();
