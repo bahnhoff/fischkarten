@@ -162,9 +162,9 @@ export const GROUP = [
     path: 'keine Fettflosse → Seitenlinie fehlt → Bauchflossen zur Saugscheibe verwachsen → Grundeln → Kessler-Grundel',
     features: [
       { text: 'Keine Seitenlinie', src: 'S25' },
-      { text: 'Bauchflossen zur Saugscheibe verwachsen (Unterseite)', src: 'S25' },
-      { text: 'Kopf breit und abgeflacht, Unterkiefer vorstehend', x: 2.9, y: 51.3, src: 'WP' },
-      { text: 'Beschuppt, auch die Kopfoberseite', src: 'WP, B11' },
+      { text: 'Bauchflossen zur Saugscheibe verwachsen (Unterseite)', x: 27.5, y: 77.5, src: 'S25' },
+      { text: 'Kopf breit und abgeflacht, Unterkiefer vorstehend', x: 3.3, y: 53, src: 'WP' },
+      { text: 'Beschuppt, auch die Kopfoberseite', x: 21.5, y: 38, src: 'WP, B11' },
     ],
     similar: [
       { name: 'Groppe', diff: 'Keine Schuppen, Bauchflossen getrennt, Seitenlinie vorhanden.' },
