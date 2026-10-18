@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bestimmungsbaum – Fischkarten NRW</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="view tree">
+  <p><a class="button small" href="index.html">← Menü</a></p>
+  <h1>Bestimmungsbaum</h1>
+  <p class="sub">Gekürzt auf die 49 NRW-Prüfungsarten. Grundlage: Stahl, Brunken, Geiger, Herder (2025), Grafischer Bestimmungsschlüssel für die Süßwasserfische Deutschlands, Museum Koenig Bonn; ergänzt um Merkmale aus Prüfungsunterlagen. Krebse und Meeresfische stehen am Ende.</p>
+
+  <details open><summary class="q">1. Kiemendeckel vorhanden?</summary>
+    <div class="leaf">Nein, Reihe runder Kiemenöffnungen, Mundscheibe → Bach-/Flussneunauge</div>
+    <details open><summary>Ja</summary>
+
+      <details><summary class="q">2. Rücken-, Schwanz- und Afterflosse zu einem Saum verwachsen?</summary>
+        <div class="leaf">Ja → Aal</div>
+      </details>
+
+      <details><summary class="q">3. Keine Seitenlinie?</summary>
+        <div class="leaf">Bauchflossen zur Saugscheibe verwachsen → Kessler-Grundel</div>
+        <div class="leaf">Bauchflossen getrennt, dunkler Fleck hinter dem Kiemendeckel → Maifisch</div>
+      </details>
+
+      <details><summary class="q">4. Fettflosse vorhanden? (kleine Flosse zwischen Rücken- und Schwanzflosse)</summary>
+        <div class="leaf">Rückenflosse sehr groß, länger als der Kopf → Äsche</div>
+        <div class="leaf">Kein auffälliges Muster, Schnauze nasenartig → Nordseeschnäpel</div>
+        <details><summary>Auffälliges Muster (Punkte, Flecken) → Lachsfische</summary>
+          <div class="leaf">Weißer, schwarz abgesetzter Saum an den bauchseitigen Flossen, Maul reicht hinter das Auge → Bachsaibling</div>
+          <div class="leaf">Viele schwarze Punkte auf der Schwanzflosse, rosa Längsband → Regenbogenforelle</div>
+          <div class="leaf">Rote, hell umrandete Flecken neben schwarzen → Bachforelle</div>
+          <div class="leaf">Silbrig, Punkte auch unter der Seitenlinie, dicker Schwanzstiel, Schwanzflosse fast gerade → Meerforelle</div>
+          <div class="leaf">Silbrig, Punkte meist über der Seitenlinie, schlanker Schwanzstiel, Schwanzflosse eingebuchtet, Maulspalte höchstens bis Augenmitte → Lachs</div>
+        </details>
+      </details>
+
+      <details><summary class="q">5. Keine Fettflosse: einzelne Stacheln vor der Rückenflosse?</summary>
+        <div class="leaf">2–3 Stacheln → Dreistachliger Stichling</div>
+        <div class="leaf">7–11 Stacheln → Zwergstichling</div>
+      </details>
+
+      <details><summary class="q">6. Zwei Rückenflossen (oder eine zweiteilige)?</summary>
+        <div class="leaf">Eine Bartel am Kinn → Quappe</div>
+        <div class="leaf">Keine Schuppen, breiter Kopf, große Brustflossen → Groppe</div>
+        <details><summary>Schuppen, harte Stachelstrahlen → Echte Barsche</summary>
+          <div class="leaf">Schwarzer Fleck am Ende der ersten Rückenflosse, 5–7 Querbinden → Flussbarsch</div>
+          <div class="leaf">Große Hundszähne, Maulspalte bis unter das Auge → Zander</div>
+          <div class="leaf">Rückenflossen zusammenhängend, viele kleine Flecken → Kaulbarsch</div>
+        </details>
+      </details>
+
+      <details><summary class="q">7. Eine Rückenflosse: Barteln?</summary>
+        <div class="leaf">6 Barteln, sehr lang, sehr lange Afterflosse → Wels</div>
+        <details><summary>6 oder mehr kurze Barteln → Schmerlen und Steinbeißer</summary>
+          <div class="leaf">6 Barteln am Oberkiefer, dunkel marmoriert → Schmerle</div>
+          <div class="leaf">6 kurze Barteln, seitlich stark zusammengedrückt, Punkt- und Fleckenreihen → Steinbeißer</div>
+          <div class="leaf">10 Barteln, breite Längsstreifen → Schlammpeitzger</div>
+        </details>
+        <details><summary>4 Barteln (2 Paare)</summary>
+          <div class="leaf">Rückenflosse lang → Wildkarpfen</div>
+          <div class="leaf">Rückenflosse kurz, Maul unterständig → Barbe</div>
+        </details>
+        <details><summary>2 Barteln (1 Paar)</summary>
+          <div class="leaf">Sehr kleine Schuppen, hochrückig, gerade Schwanzflosse → Schleie</div>
+          <div class="leaf">Große Schuppen, langgestreckt, dunkle Fleckenreihe → Gründling</div>
+        </details>
+        <details><summary>Keine Barteln</summary>
+          <div class="leaf">Maul entenschnabelförmig, Rückenflosse weit hinten → Hecht</div>
+          <div class="leaf">Rückenflossenrand nach außen gewölbt, Jungfische mit Fleck am Schwanzstiel → Karausche</div>
+          <div class="leaf">Rückenflossenrand nach innen gewölbt, silbrig → Giebel</div>
+          <div class="leaf">Blaugrünes Längsband auf dem Schwanzstiel, hochrückig → Bitterling</div>
+          <details><summary>Sonst → Weißfische</summary>
+            <div class="leaf">Maul gerade, Unterlippe verhornt und scharfkantig, Schnauze nasenartig → Nase</div>
+            <details><summary class="q">Bauchkante zwischen Bauch- und Afterflosse scharf gekielt?</summary>
+              <div class="leaf">Seitenlinie nur über wenige Schuppen, Maul oberständig → Moderlieschen</div>
+              <div class="leaf">Höcker am Unterkiefer, Maulspalte bis unter das Auge → Rapfen</div>
+              <div class="leaf">Dunkle, nasenartige Schnauze, lange Afterflosse → Zährte</div>
+              <div class="leaf">Seitenlinie doppelt schwarz eingefasst → Schneider</div>
+              <div class="leaf">Hochrückig, Ansätze der paarigen Flossen rötlich, großes Auge → Güster</div>
+              <div class="leaf">Schlank, oberständiges Maul, silbrig → Ukelei</div>
+              <div class="leaf">Hochrückig, Flossen grau, Maul vorstülpbar → Brasse</div>
+            </details>
+            <details><summary class="q">Bauchkante gerundet</summary>
+              <div class="leaf">Maul oberständig, Rückenflosse hinter den Bauchflossen → Rotfeder</div>
+              <div class="leaf">Kleine Schuppen, Rückenflosse weit hinter den Bauchflossen → Elritze</div>
+              <div class="leaf">Afterflosse nach außen gewölbt, große Schuppen, Maul groß → Döbel</div>
+              <div class="leaf">Afterflosse nach innen gewölbt, Maul unterständig, schlank → Hasel</div>
+              <div class="leaf">Maul endständig, 41–46 Schuppen, Rückenflosse über den Bauchflossen → Rotauge</div>
+              <div class="leaf">Maul endständig, 55–62 kleinere Schuppen, Afterflosse nach innen gewölbt → Aland</div>
+            </details>
+          </details>
+        </details>
+      </details>
+    </details>
+  </details>
+
+  <details><summary class="q">Meeresfische</summary>
+    <div class="leaf">Asymmetrisch abgeflacht → Flunder</div>
+    <div class="leaf">Kleine Flössel hinter Rücken- und Afterflosse, Querstreifen auf dem Rücken → Makrele</div>
+    <div class="leaf">3 Rückenflossen, 2 Afterflossen, Kinnbartel → Kabeljau</div>
+  </details>
+
+  <details><summary class="q">Krebse</summary>
+    <div class="leaf">Scherenunterseite und Scherengelenk rot → Edelkrebs</div>
+    <div class="leaf">Scherenspitzen orange mit dunklem Band, Dornen seitlich vor der Nackenfurche, rostrote Querbinden → Amerikanischer Flusskrebs (Kamberkrebs)</div>
+  </details>
+</main>
+</body>
+</html>
