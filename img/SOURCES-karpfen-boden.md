@@ -9,7 +9,7 @@ Die Bilder stammen von Wikimedia Commons, anglerschmiede.de und weiteren Seiten.
 | Barbe | https://cdn.anglerschmiede.de/wp-content/uploads/Barbe.jpg | Anglerschmiede (anglerschmiede.de/lexikon) | nicht angegeben, auf Wunsch des Benutzers verwendet | Hintergrund entfernt |
 | Karausche | https://cdn.anglerschmiede.de/wp-content/uploads/Karausche.png | Anglerschmiede (anglerschmiede.de/lexikon) | nicht angegeben, auf Wunsch des Benutzers verwendet | Hintergrund entfernt |
 | Giebel | https://cdn.anglerschmiede.de/wp-content/uploads/Giebel.png | Anglerschmiede (anglerschmiede.de/lexikon) | nicht angegeben, auf Wunsch des Benutzers verwendet | Hintergrund entfernt |
-| Wildkarpfen | `1/1e/Cyprinus_carpio3.jpg` | laut Commons unbekannt (Bloch-Tafel laut Recherche) | gemeinfrei | gespiegelt |
+| Wildkarpfen | https://upload.wikimedia.org/wikipedia/commons/6/6b/Common_carp_%28white_background%29.jpg | U.S. Fish and Wildlife Service | gemeinfrei | ersetzt (vorher Bloch, zu hochrückig im Vergleich zum Prüfungsposter); Hintergrund entfernt, gespiegelt |
 | Schmerle | `d/d0/Barbatula_barbatula_k%C3%B6vi_cs%C3%ADk.jpg` | Zsoldos Márton | CC BY-SA 3.0 | – (Original nur 500 px breit, hochskaliert) |
 | Schlammpeitzger | `6/60/Misgurnus_fossilis1.jpg` | Krüger (Bloch) | gemeinfrei | gespiegelt |
 | Steinbeißer | https://cdn.anglerschmiede.de/wp-content/uploads/Steinbeisser.png | Anglerschmiede (anglerschmiede.de/lexikon) | nicht angegeben, auf Wunsch des Benutzers verwendet | Hintergrund entfernt |

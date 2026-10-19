@@ -142,9 +142,9 @@ export const GROUP = [
     img: 'img/kamberkrebs.jpg',
     path: 'Krebs → Scheren → Panzer → Hinterleib',
     features: [
-      { text: 'Scherenspitzen orange mit dunklem Band (Scheren hier verdeckt)', src: 'WP, SN-Q 2001' },
-      { text: 'Kräftige Dornen seitlich vor der Nackenfurche (Wangenbereich)', x: 40.25, y: 56.9, src: 'WP' },
-      { text: 'Rostrote Querbinden auf dem Hinterleib', x: 68.3, y: 47.2, src: 'WP' },
+      { text: 'Scherenspitzen orange mit dunklem Band', x: 11.7, y: 65.5, src: 'WP, SN-Q 2001' },
+      { text: 'Kräftige Dornen seitlich vor der Nackenfurche (Wangenbereich)', x: 53, y: 28, src: 'WP' },
+      { text: 'Rostrote Querbinden auf dem Hinterleib', x: 88, y: 16, src: 'WP' },
     ],
     similar: [
       { name: 'Edelkrebs', diff: 'Scherenunterseite und Scherengelenk rot.' },

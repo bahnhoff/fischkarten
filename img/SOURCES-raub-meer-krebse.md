@@ -13,4 +13,4 @@ Dateien von Wikimedia Commons, anglerschmiede.de und weiteren Seiten. Bearbeitun
 | Flunder | https://cdn.anglerschmiede.de/wp-content/uploads/Flunder.png | Anglerschmiede (anglerschmiede.de/lexikon) | nicht angegeben, auf Wunsch des Benutzers verwendet | Hintergrund entfernt |
 | Kabeljau (Dorsch) | https://upload.wikimedia.org/wikipedia/commons/b/b7/Gadus_morhua1.jpg | Marcus Elieser Bloch / Krüger | gemeinfrei | gespiegelt |
 | Edelkrebs | https://cdn.anglerschmiede.de/wp-content/uploads/Edelkrebs.jpeg | Anglerschmiede (anglerschmiede.de/lexikon) | nicht angegeben, auf Wunsch des Benutzers verwendet | Hintergrund entfernt |
-| Amerikanischer Flusskrebs (Kamberkrebs) | https://upload.wikimedia.org/wikipedia/commons/9/94/Kamberkrebs_Faxonius_limosus_syn_Orconectes_limosus.jpg | Holger Krisp | CC BY 4.0 | Rand beschnitten |
+| Amerikanischer Flusskrebs (Kamberkrebs) | https://upload.wikimedia.org/wikipedia/commons/e/e3/Kamberkrebs_spiny-cheek_crayfish_Orconectes_limosus_male.jpg | Astacoides (Wikimedia Commons) | CC BY-SA 3.0 | ersetzt (vorher Foto auf Moos); Hintergrund entfernt |

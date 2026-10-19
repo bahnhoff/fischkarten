@@ -93,8 +93,8 @@ export const GROUP = [
     img: 'img/wildkarpfen.jpg',
     path: 'keine Fettflosse → eine Rückenflosse → 2 Bartelpaare → lange Rückenflosse → Karpfen',
     features: [
-      { text: '4 Barteln: 2 lange und 2 kurze an der Oberlippe', x: 7.8, y: 62, src: 'B11, SN-Q' },
-      { text: 'Rückenflosse lang (15–20½ verzweigte Strahlen)', x: 54, y: 14.5, src: 'S25, B11' },
+      { text: '4 Barteln: 2 lange und 2 kurze an der Oberlippe', x: 6, y: 69, src: 'B11, SN-Q' },
+      { text: 'Rückenflosse lang (15–20½ verzweigte Strahlen)', x: 54, y: 27, src: 'S25, B11' },
       { text: '35–39 Schuppen in der Seitenlinie', src: 'B11' },
     ],
     similar: [
