@@ -23,9 +23,9 @@ export const GROUP = [
     img: 'img/gruendling.jpg',
     path: 'keine Fettflosse → eine Rückenflosse → 1 Bartelpaar → langgestreckt, große Schuppen → Gründling',
     features: [
-      { text: 'Ein Bartelpaar am Maulwinkel', x: 7.3, y: 61.7, src: 'S25' },
-      { text: 'Maul unterständig', x: 3.3, y: 56, src: 'S25' },
-      { text: 'Reihe dunkler Flecken entlang der Seitenlinie', x: 50, y: 52, src: 'FK' },
+      { text: 'Ein Bartelpaar am Maulwinkel', x: 8, y: 74, src: 'S25' },
+      { text: 'Maul unterständig', x: 4.2, y: 68, src: 'S25' },
+      { text: 'Reihe dunkler Flecken entlang der Seitenlinie', x: 43.3, y: 55.5, src: 'FK' },
       { text: 'Langgestreckt, braungrau, 39–44 Seitenlinienschuppen', src: 'S25' },
     ],
     similar: [
