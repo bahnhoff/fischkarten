@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Rutenbau – Fischkarten NRW</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="view rig">
+  <div class="topbar rig-top">
+    <a class="button small" href="index.html">← Menü</a>
+    <h1>Rutenbau</h1>
+    <span class="seg" role="tablist">
+      <button class="small" data-tab="uebung">Üben</button>
+      <button class="small" data-tab="aufgaben">Aufgaben</button>
+      <button class="small" data-tab="vergleich">Vergleich</button>
+    </span>
+  </div>
+  <p class="sub">Praktischer Teil: eine von 10 Aufgaben (A1–A10), 28 Punkte möglich, bestanden ab 25.
+    Lösungen aus Verbands-, Vereins- und Kursquellen, ein amtliches Lösungsblatt gibt es online nicht.</p>
+
+  <section id="tab-uebung" class="rig-tab">
+    <div class="rig-pick">
+      <button id="rig-random" class="primary">Zufällige Aufgabe</button>
+      <select id="rig-select" aria-label="Aufgabe wählen"></select>
+    </div>
+    <div id="rig-quiz" hidden>
+      <h2 id="rig-task" class="rig-task"></h2>
+      <h3>1. Geräte (Positionen 1–9)</h3>
+      <div id="rig-gear" class="rig-gear"></div>
+      <h3>2. Zubehör in der Reihenfolge der Handgriffe hinlegen (Positionen 10–16)</h3>
+      <p class="hint">Tippe die Teile in der Reihenfolge an, in der du sie nach dem Biss brauchst. Ein Tipp auf ein gelegtes Teil nimmt es wieder weg.</p>
+      <div id="rig-tools" class="rig-tools"></div>
+      <ol id="rig-laid" class="rig-laid"></ol>
+      <button id="rig-check" class="primary">Auswerten</button>
+      <div id="rig-result" class="rig-result" hidden></div>
+    </div>
+  </section>
+
+  <section id="tab-aufgaben" class="rig-tab" hidden>
+    <div id="rig-cards" class="rig-cards"></div>
+  </section>
+
+  <section id="tab-vergleich" class="rig-tab" hidden>
+    <div class="table-scroll"><table id="rig-compare" class="rig-compare"></table></div>
+  </section>
+</main>
+<script type="module" src="js/rute.js"></script>
+</body>
+</html>
