@@ -1,7 +1,7 @@
 // Seite „Rutenbau“: Üben, Aufgabenkarten und Vergleichstabelle.
 import { GEAR, KIT, TASKS, TOOLS, MAX_POINTS, PASS_POINTS, ORDER_TEXT, kitSolution, toolById,
   EXAM_DAY, TABLE_TIPS, GROUPS, RECOGNIZE, REEL_SIZES, ALSO_OK } from './rigs.js';
-import { gearOptions, scoreRig } from './rigquiz.js';
+import { gearOptions, scoreRig, cardPool, checkTable, requiredCards } from './rigquiz.js';
 import { shuffle } from './deck.js';
 
 const $ = id => document.getElementById(id);
@@ -266,6 +266,102 @@ function renderTips() {
   $('rig-tips').replaceChildren(day, ...cards, groups);
 }
 
+// ---------- Tisch decken ----------
+
+const POOL = cardPool();
+const tbl = { task: null, laid: [], checked: false };
+
+function cardEl(c, onTable) {
+  const b = el('button', `tcard${c.img ? ' has-img' : ''}`);
+  b.type = 'button';
+  b.dataset.id = c.id;
+  b.draggable = true;
+  if (c.img) {
+    const im = el('img');
+    im.src = `img/geraet/${c.img}.jpg`;
+    im.alt = '';
+    im.loading = 'lazy';
+    if (c.scale && c.scale < 1) im.style.transform = `scale(${c.scale})`;
+    b.append(im);
+  }
+  b.append(el('span', null, c.label));
+  b.addEventListener('click', () => moveCard(c.id, !onTable));
+  b.addEventListener('dragstart', e => e.dataTransfer.setData('text/plain', c.id));
+  return b;
+}
+
+function moveCard(id, toTable) {
+  if (toTable && !tbl.laid.includes(id)) tbl.laid.push(id);
+  if (!toTable) tbl.laid = tbl.laid.filter(x => x !== id);
+  renderTable();
+}
+
+function renderTable() {
+  const table = $('tbl-table');
+  const laid = tbl.laid.map(id => POOL.find(c => c.id === id));
+  table.replaceChildren(...(laid.length ? laid.map(c => cardEl(c, true))
+    : [el('p', 'hint tbl-empty', 'Dein Tisch: Karten unten antippen (oder hierher ziehen). Antippen auf dem Tisch legt sie zurück.')]));
+  const groups = [...new Set(POOL.map(c => c.group))];
+  $('tbl-pool').replaceChildren(...groups.map(g => {
+    const box = el('div', 'tbl-group');
+    box.append(el('h3', null, g));
+    const grid = el('div', 'tbl-grid');
+    for (const c of POOL.filter(x => x.group === g && !tbl.laid.includes(x.id))) grid.append(cardEl(c, false));
+    box.append(grid);
+    return box;
+  }));
+  $('tbl-count').textContent = `${tbl.laid.length} Karten auf dem Tisch`;
+}
+
+function newTable(task) {
+  tbl.task = task ?? TASKS.filter(t => t !== tbl.task)[Math.floor(Math.random() * (TASKS.length - 1))];
+  tbl.laid = [];
+  $('tbl-select').value = tbl.task.id;
+  $('tbl-task').textContent = taskText(tbl.task);
+  $('tbl-result').hidden = true;
+  renderTable();
+}
+
+function checkTableUi() {
+  const r = checkTable(tbl.task, tbl.laid, POOL);
+  const box = $('tbl-result');
+  const allOk = r.missing.length === 0 && r.wrong.length === 0;
+  box.replaceChildren(el('p', `rig-total ${allOk ? 'ok' : 'bad'}`,
+    allOk ? `Alles richtig: ${r.total} von ${r.total} Teilen.` : `${r.ok} von ${r.total} nötigen Teilen auf dem Tisch.`));
+  if (r.missing.length) {
+    box.append(el('h3', null, 'Fehlt'));
+    const ul = el('ul', 'bad');
+    for (const m of r.missing) ul.append(el('li', null, m));
+    box.append(ul);
+  }
+  if (r.wrong.length) {
+    box.append(el('h3', null, 'Gehört nicht dazu'));
+    const ul = el('ul', 'bad');
+    for (const w of r.wrong) ul.append(el('li', null, w));
+    box.append(ul);
+  }
+  const sol = el('details');
+  sol.append(el('summary', null, 'Komplette Lösung anzeigen'));
+  const ul = el('ul');
+  for (const q of requiredCards(tbl.task)) ul.append(el('li', null, q.label));
+  sol.append(ul);
+  box.append(sol);
+  box.hidden = false;
+  box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+$('tbl-select').append(el('option', null, 'Aufgabe wählen …'), ...TASKS.map(t => {
+  const o = el('option', null, `${t.id} ${t.title} (${t.fish})`);
+  o.value = t.id;
+  return o;
+}));
+$('tbl-select').firstChild.disabled = true;
+$('tbl-select').addEventListener('change', e => newTable(TASKS.find(t => t.id === e.target.value)));
+$('tbl-new').addEventListener('click', () => newTable());
+$('tbl-check').addEventListener('click', checkTableUi);
+$('tbl-table').addEventListener('dragover', e => e.preventDefault());
+$('tbl-table').addEventListener('drop', e => { e.preventDefault(); moveCard(e.dataTransfer.getData('text/plain'), true); });
+
 // ---------- Start ----------
 
 $('rig-select').append(el('option', null, 'Aufgabe wählen …'), ...TASKS.map(t => {
@@ -287,5 +383,6 @@ renderCompare();
 renderTips();
 nextRecognize();
 const initial = location.hash.slice(1);
-showTab(['uebung', 'erkennen', 'aufgaben', 'vergleich', 'tipps'].includes(initial) ? initial : 'uebung');
+showTab(['tisch', 'uebung', 'erkennen', 'aufgaben', 'vergleich', 'tipps'].includes(initial) ? initial : 'tisch');
+newTable();
 randomTask();

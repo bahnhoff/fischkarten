@@ -13,6 +13,7 @@
     <a class="button small" href="index.html">← Menü</a>
     <h1>Rutenbau</h1>
     <span class="seg" role="tablist">
+      <button class="small" data-tab="tisch">Tisch</button>
       <button class="small" data-tab="uebung">Üben</button>
       <button class="small" data-tab="erkennen">Erkennen</button>
       <button class="small" data-tab="aufgaben">Aufgaben</button>
@@ -22,6 +23,25 @@
   </div>
   <p class="sub">Praktischer Teil: eine von 10 Aufgaben (A1–A10), 28 Punkte möglich, bestanden ab 25.
     Lösungen aus Verbands-, Vereins- und Kursquellen, ein amtliches Lösungsblatt gibt es online nicht.</p>
+
+  <section id="tab-tisch" class="rig-tab" hidden>
+    <div class="rig-pick">
+      <button id="tbl-new" class="primary">Neue Aufgabe</button>
+      <select id="tbl-select" aria-label="Aufgabe wählen"></select>
+    </div>
+    <h2 id="tbl-task" class="rig-task"></h2>
+    <div class="tbl-sticky">
+    <div id="tbl-table" class="tbl-table" aria-label="Dein Tisch">
+      <p class="hint tbl-empty">Dein Tisch: Karten unten antippen (oder hierher ziehen). Antippen auf dem Tisch legt sie zurück.</p>
+    </div>
+    <div class="rig-pick">
+      <button id="tbl-check" class="primary">Prüfen</button>
+      <span id="tbl-count" class="progress"></span>
+    </div>
+    </div>
+    <div id="tbl-result" class="tbl-result" hidden></div>
+    <div id="tbl-pool" class="tbl-pool"></div>
+  </section>
 
   <section id="tab-uebung" class="rig-tab">
     <div class="rig-pick">

@@ -81,3 +81,26 @@ test('Wurm zählt bei A1–A4 als richtiger Köder, nicht bei A5–A10', () => {
     assert.equal(opts.filter(o => isCorrect(t, 'koeder', o)).length, 1, `${t.id}: genau eine richtige Möglichkeit`);
   }
 });
+
+import { cardPool, requiredCards, checkTable } from '../js/rigquiz.js';
+
+test('Tisch: Musterlösung jeder Aufgabe ist vollständig und ohne falsche Karten', () => {
+  const pool = cardPool();
+  const ids = new Set(pool.map(c => c.id));
+  assert.equal(ids.size, pool.length, 'Karten-IDs eindeutig');
+  for (const t of TASKS) {
+    const req = requiredCards(t);
+    for (const r of req) assert.ok(r.any.every(id => ids.has(id)), `${t.id}: ${r.label} fehlt im Kartenvorrat`);
+    const laid = req.map(r => r.any[0]);
+    const res = checkTable(t, laid, pool);
+    assert.deepEqual([res.missing, res.wrong], [[], []], t.id);
+  }
+});
+
+test('Tisch: A9 ohne Gaff und mit Kescher meldet Fehlendes und Falsches', () => {
+  const a9 = TASKS.find(t => t.id === 'A9');
+  const laid = requiredCards(a9).map(r => r.any[0]).filter(id => id !== 't:gaff').concat('t:unterfangkescher');
+  const res = checkTable(a9, laid);
+  assert.deepEqual(res.missing, ['Gaff']);
+  assert.deepEqual(res.wrong, ['Unterfangkescher']);
+});

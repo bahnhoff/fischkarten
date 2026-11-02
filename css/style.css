@@ -277,3 +277,29 @@ h1 { margin: 0 0 0.3em; font-size: 2rem; }
 .rec-reels .reel.marked { border-color: var(--arrow); }
 .rec-reels figcaption { font-weight: 700; margin-top: 0.3rem; }
 .rig-sol .also { color: var(--ok); font-size: 0.9em; }
+
+/* ---------- Tisch decken ---------- */
+.tbl-table { min-height: 110px; border: 3px dashed #c9b98f; border-radius: 12px; background: #fbf6e8; padding: 0.5rem;
+  display: flex; flex-wrap: wrap; gap: 0.4rem; align-content: flex-start; margin: 0.5rem 0; }
+.tbl-empty { margin: auto; text-align: center; }
+.tbl-pool { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.8rem; }
+.tbl-group h3 { margin: 0.2rem 0 0.3rem; font-size: 0.95rem; color: var(--muted); }
+.tbl-grid { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tcard { flex-direction: column; width: 108px; min-height: 64px; padding: 0.25rem; font-size: 0.78rem; line-height: 1.15;
+  background: #fff; border-width: 2px; text-align: center; gap: 0.2rem; }
+.tcard img { width: 100%; height: 56px; object-fit: contain; }
+.tbl-table .tcard { border-color: var(--accent); background: #e5f1f6; }
+.tbl-result ul.bad li { color: var(--bad); font-weight: 600; }
+.tbl-result h3 { margin: 0.6rem 0 0.2rem; font-size: 1rem; }
+@media (max-height: 500px) {
+  .tcard { width: 96px; font-size: 0.72rem; }
+  .tcard img { height: 44px; }
+}
+.tbl-sticky { position: sticky; top: 0; z-index: 5; background: var(--bg); padding-bottom: 0.3rem; box-shadow: 0 6px 6px -6px rgb(0 0 0 / 0.25); }
+.tbl-sticky .tbl-table { max-height: 34vh; max-height: 34dvh; overflow-y: auto; min-height: 70px; margin-top: 0; }
+.tbl-sticky .rig-pick { margin: 0.3rem 0 0; }
+@media (max-height: 500px) {
+  .rig > .sub { display: none; }
+  #tab-tisch .rig-task { font-size: 0.95rem; padding: 0.3em 0.5em; margin: 0.3rem 0; }
+  .tbl-sticky .tbl-table { max-height: 26vh; max-height: 26dvh; }
+}
