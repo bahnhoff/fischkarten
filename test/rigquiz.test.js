@@ -58,3 +58,20 @@ test('A6: Rachensperre mit und ohne richtig; A10: Kescher ist falsch', () => {
   const s10 = solution(a10);
   assert.equal(scoreRig(a10, s10.answers, ['unterfangkescher', ...s10.tools]).total, 27);
 });
+
+import { RECOGNIZE, GROUPS, isCorrect } from '../js/rigs.js';
+
+test('A10: große Stationärrolle zählt als richtig und erscheint nicht als falsche Möglichkeit', () => {
+  const a10 = TASKS.find(t => t.id === 'A10');
+  assert.equal(isCorrect(a10, 'rolle', 'Große Stationärrolle'), true);
+  for (let i = 0; i < 30; i++) {
+    const opts = gearOptions(a10, 'rolle');
+    assert.equal(opts.filter(o => isCorrect(a10, 'rolle', o)).length, 1);
+  }
+});
+
+test('Erkennen-Übung und Gruppen verweisen nur auf gültige Aufgaben', () => {
+  const ids = new Set(TASKS.map(t => t.id));
+  for (const r of RECOGNIZE) for (const id of r.tasks) assert.ok(ids.has(id), `${r.item}: ${id}`);
+  assert.deepEqual(GROUPS.flatMap(g => g.tasks).sort(), [...ids].sort());
+});

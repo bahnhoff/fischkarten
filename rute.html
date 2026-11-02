@@ -13,8 +13,10 @@
     <h1>Rutenbau</h1>
     <span class="seg" role="tablist">
       <button class="small" data-tab="uebung">Üben</button>
+      <button class="small" data-tab="erkennen">Erkennen</button>
       <button class="small" data-tab="aufgaben">Aufgaben</button>
       <button class="small" data-tab="vergleich">Vergleich</button>
+      <button class="small" data-tab="tipps">Prüfungstipps</button>
     </span>
   </div>
   <p class="sub">Praktischer Teil: eine von 10 Aufgaben (A1–A10), 28 Punkte möglich, bestanden ab 25.
@@ -36,6 +38,22 @@
       <button id="rig-check" class="primary">Auswerten</button>
       <div id="rig-result" class="rig-result" hidden></div>
     </div>
+  </section>
+
+  <section id="tab-erkennen" class="rig-tab" hidden>
+    <p class="hint">Am Prüfungstisch liegen alle Teile durcheinander. Zu welcher Aufgabe gehört dieses Teil? Es können mehrere richtig sein.</p>
+    <p id="rec-score" class="progress"></p>
+    <h2 id="rec-item" class="rig-task"></h2>
+    <div id="rec-tasks" class="rec-tasks"></div>
+    <div class="rig-pick">
+      <button id="rec-check" class="primary">Prüfen</button>
+      <button id="rec-next">Nächstes Teil</button>
+    </div>
+    <p id="rec-result" class="rec-result"></p>
+  </section>
+
+  <section id="tab-tipps" class="rig-tab" hidden>
+    <div id="rig-tips" class="rig-tips"></div>
   </section>
 
   <section id="tab-aufgaben" class="rig-tab" hidden>

@@ -1,18 +1,18 @@
 // Logik der Übung „Rute bauen“: Auswahlmöglichkeiten erzeugen und nach dem Bewertungsbogen werten.
-import { GEAR, TASKS, TOOLS, PASS_POINTS, toolById } from './rigs.js';
+import { GEAR, TASKS, TOOLS, PASS_POINTS, toolById, isCorrect } from './rigs.js';
 import { shuffle } from './deck.js';
 
 // Richtige Lösung plus bis zu `n - 1` verschiedene falsche Werte derselben Position aus anderen Aufgaben.
 export function gearOptions(task, key, rand = Math.random, n = 4, tasks = TASKS) {
   const correct = task.gear[key];
-  const others = [...new Set(tasks.map(t => t.gear[key]).filter(v => v !== correct))];
+  const others = [...new Set(tasks.map(t => t.gear[key]).filter(v => !isCorrect(task, key, v)))];
   return shuffle([correct, ...shuffle(others, rand).slice(0, n - 1)], rand);
 }
 
 // answers: { [gearKey]: gewählter Text }, tools: Liste der Zubehör-IDs in der gelegten Reihenfolge.
 export function scoreRig(task, answers, tools) {
   const rows = GEAR.map(p => {
-    const ok = answers[p.key] === task.gear[p.key];
+    const ok = isCorrect(task, p.key, answers[p.key]);
     return { n: p.n, label: p.label, max: p.max, points: ok ? p.max : 0, given: answers[p.key] ?? '–' };
   });
 

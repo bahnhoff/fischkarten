@@ -1,5 +1,6 @@
 // Seite „Rutenbau“: Üben, Aufgabenkarten und Vergleichstabelle.
-import { GEAR, KIT, TASKS, TOOLS, MAX_POINTS, PASS_POINTS, ORDER_TEXT, kitSolution, toolById } from './rigs.js';
+import { GEAR, KIT, TASKS, TOOLS, MAX_POINTS, PASS_POINTS, ORDER_TEXT, kitSolution, toolById,
+  EXAM_DAY, TABLE_TIPS, GROUPS, RECOGNIZE } from './rigs.js';
 import { gearOptions, scoreRig } from './rigquiz.js';
 import { shuffle } from './deck.js';
 
@@ -86,7 +87,7 @@ function checkQuiz() {
   for (const r of res.rows) {
     const gearPos = GEAR.find(p => p.n === r.n);
     const kitPos = KIT.find(p => p.n === r.n);
-    const correct = gearPos ? t.gear[gearPos.key] : kit[kitPos.key];
+    const correct = gearPos ? [t.gear[gearPos.key], ...(t.accept?.[gearPos.key] ?? [])].join(' oder ') : kit[kitPos.key];
     const given = gearPos ? r.given : kitGiven[r.n];
     const tr = el('tr', r.points === r.max ? 'ok' : 'bad');
     tr.append(el('td', null, `${r.n}. ${r.label}`), el('td', null, given), el('td', null, correct), el('td', null, `${r.points} / ${r.max}`));
@@ -125,7 +126,10 @@ function randomTask() {
 function renderCards() {
   $('rig-cards').replaceChildren(...TASKS.map(t => {
     const card = el('article', 'rig-card');
-    card.append(el('h2', null, `${t.id} ${t.title}`), el('p', 'sub', `Zielfisch: ${t.fish}`));
+    const group = GROUPS.find(g => g.tasks.includes(t.id));
+    const twin = group.tasks.filter(id => id !== t.id);
+    card.append(el('h2', null, `${t.id} ${t.title}`), el('p', 'sub', `Zielfisch: ${t.fish}`),
+      el('p', 'rig-group', `Gruppe ${group.name}${twin.length ? `, wie ${twin.join(', ')}` : ''}: ${group.note}`));
     const table = el('table', 'rig-sol');
     const kit = kitSolution(t);
     for (const p of [...GEAR, ...KIT]) {
@@ -169,6 +173,72 @@ function renderCompare() {
   table.append(tr);
 }
 
+// ---------- Erkennen ----------
+
+const rec = { item: null, picked: new Set(), right: 0, total: 0, checked: false, order: [] };
+
+function nextRecognize() {
+  if (rec.order.length === 0) rec.order = shuffle(RECOGNIZE);
+  rec.item = rec.order.pop();
+  rec.picked = new Set();
+  rec.checked = false;
+  $('rec-item').textContent = rec.item.item;
+  $('rec-result').textContent = '';
+  $('rec-tasks').replaceChildren(...TASKS.map(t => {
+    const b = el('button', 'rec-task', `${t.id} ${t.fish}`);
+    b.type = 'button';
+    b.dataset.id = t.id;
+    b.addEventListener('click', () => {
+      if (rec.checked) return;
+      if (rec.picked.has(t.id)) rec.picked.delete(t.id); else rec.picked.add(t.id);
+      b.classList.toggle('selected', rec.picked.has(t.id));
+    });
+    return b;
+  }));
+  updateRecScore();
+}
+
+function checkRecognize() {
+  if (rec.checked) return;
+  rec.checked = true;
+  const want = new Set(rec.item.tasks);
+  const ok = want.size === rec.picked.size && [...want].every(id => rec.picked.has(id));
+  rec.total++;
+  if (ok) rec.right++;
+  for (const b of $('rec-tasks').children) {
+    b.classList.toggle('ok', want.has(b.dataset.id));
+    b.classList.toggle('bad', rec.picked.has(b.dataset.id) && !want.has(b.dataset.id));
+  }
+  $('rec-result').textContent = ok ? 'Richtig.' : `Richtig wäre: ${rec.item.tasks.join(', ')}.`;
+  $('rec-result').className = `rec-result ${ok ? 'ok' : 'bad'}`;
+  updateRecScore();
+}
+
+function updateRecScore() {
+  $('rec-score').textContent = rec.total ? `${rec.right} von ${rec.total} richtig` : '';
+}
+
+// ---------- Prüfungstipps ----------
+
+function renderTips() {
+  const day = el('article', 'rig-card');
+  const ul = el('ul');
+  for (const t of EXAM_DAY) ul.append(el('li', null, t));
+  day.append(el('h2', null, 'So lief die Prüfung ab'), el('p', 'sub', 'Erfahrungsbericht Herne, Juni 2021'), ul);
+  const cards = TABLE_TIPS.map(sec => {
+    const c = el('article', 'rig-card');
+    const list = el('ul');
+    for (const t of sec.items) list.append(el('li', null, t));
+    c.append(el('h2', null, sec.title), list);
+    return c;
+  });
+  const groups = el('article', 'rig-card');
+  const gl = el('ul');
+  for (const g of GROUPS) gl.append(el('li', null, `${g.tasks.join(' + ')}: ${g.name}. ${g.note}`));
+  groups.append(el('h2', null, 'Aus 10 mach 6'), el('p', 'sub', 'Gleiche Teile in gleicher Abfolge, nur anders dimensioniert'), gl);
+  $('rig-tips').replaceChildren(day, ...cards, groups);
+}
+
 // ---------- Start ----------
 
 $('rig-select').append(el('option', null, 'Aufgabe wählen …'), ...TASKS.map(t => {
@@ -180,10 +250,14 @@ $('rig-select').firstChild.disabled = true;
 $('rig-select').addEventListener('change', e => startQuiz(TASKS.find(t => t.id === e.target.value)));
 $('rig-random').addEventListener('click', randomTask);
 $('rig-check').addEventListener('click', checkQuiz);
+$('rec-check').addEventListener('click', checkRecognize);
+$('rec-next').addEventListener('click', nextRecognize);
 for (const b of document.querySelectorAll('[data-tab]')) b.addEventListener('click', () => showTab(b.dataset.tab));
 
 renderCards();
 renderCompare();
+renderTips();
+nextRecognize();
 const initial = location.hash.slice(1);
-showTab(['uebung', 'aufgaben', 'vergleich'].includes(initial) ? initial : 'uebung');
+showTab(['uebung', 'erkennen', 'aufgaben', 'vergleich', 'tipps'].includes(initial) ? initial : 'uebung');
 randomTask();

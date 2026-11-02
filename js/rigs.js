@@ -223,7 +223,7 @@ export const TASKS = [
     id: 'A10', title: 'Brandungsrute', fish: 'Plattfische',
     gear: {
       rute: 'Brandungsrute, 3,6–5,0 m, Wurfgewicht 100–250 g',
-      rolle: 'Schwere Stationärrolle (oder Multirolle)',
+      rolle: 'Große (schwere) Stationärrolle',
       schnur: 'Tragkraft 6–14 kg, dazu Schlagschnur 15–20 kg',
       biss: ENTF,
       beschwerung: 'Brandungsblei 100–150 g',
@@ -235,7 +235,10 @@ export const TASKS = [
     why: {
       landehilfe: 'Am Strand wird der Fisch mit der Hand gelandet, ein Kescher entfällt.',
     },
+    // Im Prüfungsset gibt es nur kleine, mittlere und große Stationärrollen; die große ist die schwere.
+    accept: { rolle: ['Große Stationärrolle', 'Multirolle (oder schwere Stationärrolle)'] },
     alt: {
+      rolle: 'Im Herner Prüfungsset 2021 gab es nur kleine, mittlere und große (schwere) Stationärrollen, für A10 die große. Manche Quellen nennen auch die Multirolle.',
       wirbel: 'Ein Wirbel reicht laut einem Prüfling; im Märkischen Kreis verlangten Prüfer 2015 zwei.',
     },
     kit: { landehilfe: null, rachensperre: false, loesen: ['loesezange'] },
@@ -258,3 +261,97 @@ export function kitSolution(task) {
     reihenfolge: ORDER_TEXT,
   };
 }
+
+// Ist die gewählte Antwort richtig? Berücksichtigt gleichwertige Antworten (accept).
+export function isCorrect(task, key, answer) {
+  return answer === task.gear[key] || (task.accept?.[key] ?? []).includes(answer);
+}
+
+// ---------- Erfahrungen aus der Prüfung (Herne 2021, docs/research/erfahrungsbericht-herne-2021-rutenbau.md) ----------
+
+export const EXAM_DAY = [
+  'Die Aufgabe kommt per Zettel, du liest sie vor.',
+  'Alle zehn Ruten mit Zubehör liegen verteilt auf mehreren Tischen. Du suchst die Teile heraus und legst sie auf einen freien Tisch.',
+  'Rollen sind nicht bespult: Die Schnur wählst du separat (im Set: 3,6 kg, 5,4 kg, ca. 11,3 kg, 17,4 kg).',
+  'Tipp aus dem Bericht: mit dem Zubehör anfangen, dort zählt die Reihenfolge. Bei den Geräteteilen 1–9 zählt sie nicht.',
+  'Der Prüfer nennt Fehler erst, wenn du dich fertig meldest. Eine falsche Rollengröße kostete im Bericht alle 3 Punkte (25 von 28, knapp bestanden).',
+  'Der praktische Teil dauerte etwa 10 Minuten.',
+];
+
+export const TABLE_TIPS = [
+  { title: 'Rute durch Ausschluss finden', items: [
+    'Fliegenrute: Die Rolle sitzt hinter der Wurfhand (A7, A8).',
+    'Pilkrute: kräftigste Rute mit roter Spitze (A9).',
+    'Brandungsrute: längste Rute mit dem höchsten Wurfgewicht (A10).',
+    'Feederrute: dreiteilige Steckrute mit farbiger, weicher Spitze und Köcher mit Wechselspitzen (A2).',
+    'Zwei Teleskopruten: die sehr lange (ca. 5 m, bis 20 g) für A1, die kürzere grüne (3,6 m, bis 70 g) für A3.',
+    'Drei Steckruten über das Wurfgewicht: 60 g für A4, 40 g für A5, 20 g für A6.',
+  ] },
+  { title: 'Rolle', items: [
+    'Kleine Stationärrolle: A1, A2.',
+    'Mittlere Stationärrolle: nur A6.',
+    'Große Stationärrolle: A3, A4, A5, A10.',
+    'Multirolle: nur A9. Fliegenrolle: A7, A8.',
+  ] },
+  { title: 'Schnur, Vorfach, Wirbel', items: [
+    'Das Vorfach ist immer schwächer als die Hauptschnur (Sollbruchstelle).',
+    'Vor freilaufender Beschwerung (Futterkorb, Laufblei) schützen Stopper oder Gummiperle den Wirbel.',
+    'Stahlvorfach 40 cm bei A5 und A6; zwei Wirbel dazu wurden nicht beanstandet.',
+  ] },
+  { title: 'Köder', items: [
+    'Großer Spinner oder Blinker: A5. Kleiner Spinner: A6. Beide liegen nebeneinander.',
+    'Trockenfliege: buschig und voluminös (A7). Nassfliege: drahtig, weniger buschig (A8).',
+    'Ein passender Köder reicht, Zusatzpunkte gibt es nicht.',
+  ] },
+];
+
+// „Aus 10 mach 6“: gleiche Teile in gleicher Abfolge, nur anders dimensioniert.
+export const GROUPS = [
+  { tasks: ['A1', 'A3'], name: 'Posenangeln', note: 'Gleicher Aufbau, A3 kräftiger (Karpfen).' },
+  { tasks: ['A2', 'A4'], name: 'Grundangeln', note: 'Fast gleicher Aufbau: A2 mit Futterkorb, A4 mit Laufblei.' },
+  { tasks: ['A5', 'A6'], name: 'Spinnfischen', note: 'Gleicher Aufbau mit Stahlvorfach, A5 kräftiger (Hecht).' },
+  { tasks: ['A7', 'A8'], name: 'Fliegenfischen', note: 'Gleicher Aufbau, Unterschied nur bei Schnur, Vorfach und Fliege.' },
+  { tasks: ['A9'], name: 'Pilken vom Boot', note: 'Eigene Gruppe.' },
+  { tasks: ['A10'], name: 'Brandungsangeln', note: 'Eigene Gruppe.' },
+];
+
+// „Am Tisch erkennen“: Zu welcher Aufgabe gehört dieses Teil?
+export const RECOGNIZE = [
+  { item: 'Teleskoprute, sehr lang (ca. 5 m), Wurfgewicht bis 20 g', tasks: ['A1'] },
+  { item: 'Teleskoprute, grün, 3,6 m, Wurfgewicht bis 70 g', tasks: ['A3'] },
+  { item: 'Dreiteilige Steckrute mit farbiger, weicher Spitze', tasks: ['A2'] },
+  { item: 'Steckrute 2,7 m, Wurfgewicht 60 g', tasks: ['A4'] },
+  { item: 'Steckrute 2,4 m, Wurfgewicht 40 g', tasks: ['A5'] },
+  { item: 'Kurze Steckrute bis 2,1 m, Wurfgewicht 20 g', tasks: ['A6'] },
+  { item: 'Rute, bei der die Rolle hinter der Wurfhand sitzt', tasks: ['A7', 'A8'] },
+  { item: 'Kräftigste Rute mit roter Spitze', tasks: ['A9'] },
+  { item: 'Längste Rute mit dem höchsten Wurfgewicht', tasks: ['A10'] },
+  { item: 'Kleine Stationärrolle', tasks: ['A1', 'A2'] },
+  { item: 'Mittlere Stationärrolle', tasks: ['A6'] },
+  { item: 'Große Stationärrolle', tasks: ['A3', 'A4', 'A5', 'A10'] },
+  { item: 'Multirolle', tasks: ['A9'] },
+  { item: 'Fliegenrolle', tasks: ['A7', 'A8'] },
+  { item: 'Schnur mit 3,6 kg Tragkraft', tasks: ['A1', 'A2'] },
+  { item: 'Schnur mit 5,4 kg Tragkraft', tasks: ['A6'] },
+  { item: 'Schnur mit ca. 11,3 kg Tragkraft', tasks: ['A3', 'A4', 'A5'] },
+  { item: 'Helle, schwimmende Fliegenschnur', tasks: ['A7'] },
+  { item: 'Dunkle, sinkende Fliegenschnur', tasks: ['A8'] },
+  { item: 'Pose 1–3,5 g', tasks: ['A1'] },
+  { item: 'Pose 5–10 g', tasks: ['A3'] },
+  { item: 'Futterkorb ca. 20 g', tasks: ['A2'] },
+  { item: 'Laufblei mit Perle', tasks: ['A4'] },
+  { item: 'Brandungsblei 100–150 g', tasks: ['A10'] },
+  { item: 'Stahlvorfach 40 cm', tasks: ['A5', 'A6'] },
+  { item: 'Brandungsvorfach mit Schlagschnur', tasks: ['A10'] },
+  { item: 'Meereswirbel 1/0–3/0', tasks: ['A9', 'A10'] },
+  { item: 'Großer Spinner oder Blinker', tasks: ['A5'] },
+  { item: 'Kleiner Spinner', tasks: ['A6'] },
+  { item: 'Buschige, voluminöse Fliege', tasks: ['A7'] },
+  { item: 'Drahtige, wenig buschige Fliege', tasks: ['A8'] },
+  { item: 'Pilker', tasks: ['A9'] },
+  { item: 'Mais', tasks: ['A3'] },
+  { item: 'Wattwurm', tasks: ['A10'] },
+  { item: 'Watkescher', tasks: ['A7', 'A8'] },
+  { item: 'Gaff', tasks: ['A9'] },
+  { item: 'Rachensperre', tasks: ['A5', 'A6'] },
+];
