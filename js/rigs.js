@@ -318,7 +318,7 @@ export const EXAM_DAY = [
 
 export const TABLE_TIPS = [
   { title: 'Rute durch Ausschluss finden', items: [
-    'Fliegenrute: Die Rolle sitzt hinter der Wurfhand (A7, A8).',
+    'Fliegenrute: Der Rollenhalter sitzt ganz unten am Griffende, auch ohne Rolle zu erkennen (A7, A8).',
     'Pilkrute: kräftigste Rute mit roter Spitze (A9).',
     'Brandungsrute: längste Rute mit dem höchsten Wurfgewicht (A10).',
     'Feederrute: dreiteilige Steckrute mit farbiger, weicher Spitze und Köcher mit Wechselspitzen (A2).',
@@ -361,7 +361,7 @@ export const RECOGNIZE = [
   { item: 'Steckrute 2,7 m, Wurfgewicht 60 g', tasks: ['A4'] },
   { item: 'Steckrute 2,4 m, Wurfgewicht 40 g', tasks: ['A5'] },
   { item: 'Kurze Steckrute bis 2,1 m, Wurfgewicht 20 g', tasks: ['A6'] },
-  { item: 'Rute, bei der die Rolle hinter der Wurfhand sitzt', tasks: ['A7', 'A8'] },
+  { item: 'Rute mit dem Rollenhalter ganz unten am Griffende', tasks: ['A7', 'A8'] },
   { item: 'Kräftigste Rute mit roter Spitze', tasks: ['A9'] },
   { item: 'Längste Rute mit dem höchsten Wurfgewicht', tasks: ['A10'] },
   { item: 'Kleine Stationärrolle', tasks: ['A1', 'A2'] },
