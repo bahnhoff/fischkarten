@@ -183,7 +183,8 @@ function renderCompare() {
 const rec = { item: null, picked: new Set(), right: 0, total: 0, checked: false, order: [] };
 
 function nextRecognize() {
-  if (rec.order.length === 0) rec.order = shuffle(RECOGNIZE);
+  // Bildfragen zuerst (pop nimmt vom Ende), danach die Textfragen.
+  if (rec.order.length === 0) rec.order = [...shuffle(RECOGNIZE.filter(r => !r.img)), ...shuffle(RECOGNIZE.filter(r => r.img))];
   rec.item = rec.order.pop();
   rec.picked = new Set();
   rec.checked = false;
