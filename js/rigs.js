@@ -118,6 +118,7 @@ export const TASKS = [
     },
     alt: {
       biss: 'Eine Aalglocke ist denkbar, wurde laut einem Prüfling aber nicht verlangt.',
+      rute: 'Wurfgewichte 60 / 40 / 20 g für A4 / A5 / A6 stammen aus dem Herner Prüfungsset 2021. Eine Vereinstabelle nennt für die Hechtrute ebenfalls 60 g. Sicher ist: A6 ist die kürzeste und leichteste Steckrute.',
     },
     kit: { landehilfe: 'unterfangkescher', rachensperre: false, loesen: ['loesezange', 'hakenloeser'] },
   },
@@ -140,6 +141,7 @@ export const TASKS = [
     },
     alt: {
       vorfach: 'Vor 2015 reichten 15 cm.',
+      rute: 'Wurfgewicht 40 g laut Herner Prüfungsset 2021, eine Vereinstabelle nennt 60 g (Spanne 40–80 g).',
     },
     kit: { landehilfe: 'unterfangkescher', rachensperre: true, loesen: ['loesezange'] },
   },
@@ -235,8 +237,6 @@ export const TASKS = [
     why: {
       landehilfe: 'Am Strand wird der Fisch mit der Hand gelandet, ein Kescher entfällt.',
     },
-    // Im Prüfungsset gibt es nur kleine, mittlere und große Stationärrollen; die große ist die schwere.
-    accept: { rolle: ['Große Stationärrolle', 'Multirolle (oder schwere Stationärrolle)'] },
     alt: {
       rolle: 'Im Herner Prüfungsset 2021 gab es nur kleine, mittlere und große (schwere) Stationärrollen, für A10 die große. Manche Quellen nennen auch die Multirolle.',
       wirbel: 'Ein Wirbel reicht laut einem Prüfling; im Märkischen Kreis verlangten Prüfer 2015 zwei.',
@@ -262,9 +262,47 @@ export function kitSolution(task) {
   };
 }
 
-// Ist die gewählte Antwort richtig? Berücksichtigt gleichwertige Antworten (accept).
+// Merkform: kurze Antworten, so wie man die Teile am Prüfungstisch erkennt.
+// Grundlage: Mehrheitslösung (gear) und Erkennungstipps aus dem Herner Erfahrungsbericht 2021.
+// Gleiche Texte bei mehreren Aufgaben bedeuten dasselbe Teil.
+const E = 'entfällt';
+export const SHORT = {
+  A1: { rute: 'Teleskoprute, die längste', rolle: 'Kleine Stationärrolle', schnur: 'Dünn (3,6 kg)', biss: 'Kleine Pose (1–3,5 g)',
+    beschwerung: 'Bleischrot', vorfach: 'Dünner als die Hauptschnur, kleiner Haken', wirbel: 'Kleiner Wirbel',
+    haken: 'Klein (Gr. 10 und kleiner)', koeder: 'Made' },
+  A2: { rute: 'Feederrute (weiche, farbige Spitze)', rolle: 'Kleine Stationärrolle', schnur: 'Dünn (3,6 kg)', biss: 'Rutenspitze',
+    beschwerung: 'Futterkorb (ca. 20 g)', vorfach: 'Dünner als die Hauptschnur, kleiner Haken', wirbel: 'Kleiner Wirbel',
+    haken: 'Klein (Gr. 10 und kleiner)', koeder: 'Made oder Teig' },
+  A3: { rute: 'Teleskoprute, die kürzere (kräftiger)', rolle: 'Große Stationärrolle', schnur: 'Dick (11,3 kg)', biss: 'Größere Pose (5–10 g)',
+    beschwerung: 'Bleischrot', vorfach: 'Dünner als die Hauptschnur, mittlerer Haken', wirbel: 'Mittlerer Wirbel',
+    haken: 'Mittel (Gr. 6 und größer)', koeder: 'Mais' },
+  A4: { rute: 'Steckrute, Wurfgewicht 60 g', rolle: 'Große Stationärrolle', schnur: 'Dick (11,3 kg)', biss: E,
+    beschwerung: 'Laufblei mit Perle', vorfach: 'Dünner als die Hauptschnur, mittlerer Haken', wirbel: 'Mittlerer Wirbel',
+    haken: 'Mittel (Gr. 6 und größer)', koeder: 'Wurm' },
+  A5: { rute: 'Steckrute, Wurfgewicht 40 g', rolle: 'Große Stationärrolle', schnur: 'Dick (11,3 kg)', biss: E,
+    beschwerung: E, vorfach: 'Stahlvorfach 40 cm', wirbel: '2 Wirbel zum Stahlvorfach',
+    haken: 'Entfällt (am Köder)', koeder: 'Großer Spinner oder Blinker' },
+  A6: { rute: 'Steckrute, die kürzeste (Wurfgewicht 20 g)', rolle: 'Mittlere Stationärrolle', schnur: 'Mittel (5,4 kg)', biss: E,
+    beschwerung: E, vorfach: 'Stahlvorfach 40 cm', wirbel: '2 Wirbel zum Stahlvorfach',
+    haken: 'Entfällt (am Köder)', koeder: 'Kleiner Spinner' },
+  A7: { rute: 'Fliegenrute', rolle: 'Fliegenrolle', schnur: 'Fliegenschnur hell, schwimmend', biss: E,
+    beschwerung: E, vorfach: 'Fliegenvorfach, schwimmend', wirbel: E,
+    haken: 'Entfällt (in der Fliege)', koeder: 'Trockenfliege (buschig)' },
+  A8: { rute: 'Fliegenrute', rolle: 'Fliegenrolle', schnur: 'Fliegenschnur dunkel, sinkend', biss: E,
+    beschwerung: E, vorfach: 'Fliegenvorfach, sinkend', wirbel: E,
+    haken: 'Entfällt (in der Fliege)', koeder: 'Nassfliege (drahtig)' },
+  A9: { rute: 'Pilkrute (kräftigste, rote Spitze)', rolle: 'Multirolle', schnur: 'Sehr dick (ca. 20 kg)', biss: E,
+    beschwerung: 'Entfällt (der Pilker ist schwer genug)', vorfach: E, wirbel: 'Meereswirbel',
+    haken: 'Entfällt (am Pilker)', koeder: 'Pilker' },
+  A10: { rute: 'Brandungsrute (die längste Steckrute)', rolle: 'Große Stationärrolle', schnur: 'Dick, dazu Schlagschnur', biss: E,
+    beschwerung: 'Brandungsblei', vorfach: 'Brandungsvorfach mit Schlagschnur', wirbel: 'Meereswirbel',
+    haken: 'Groß (Gr. 1/0 und größer)', koeder: 'Wattwurm' },
+};
+for (const t of TASKS) t.short = SHORT[t.id];
+
+// Ist die gewählte Merkform-Antwort richtig?
 export function isCorrect(task, key, answer) {
-  return answer === task.gear[key] || (task.accept?.[key] ?? []).includes(answer);
+  return answer === task.short[key];
 }
 
 // ---------- Erfahrungen aus der Prüfung (Herne 2021, docs/research/erfahrungsbericht-herne-2021-rutenbau.md) ----------

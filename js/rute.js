@@ -87,7 +87,7 @@ function checkQuiz() {
   for (const r of res.rows) {
     const gearPos = GEAR.find(p => p.n === r.n);
     const kitPos = KIT.find(p => p.n === r.n);
-    const correct = gearPos ? [t.gear[gearPos.key], ...(t.accept?.[gearPos.key] ?? [])].join(' oder ') : kit[kitPos.key];
+    const correct = gearPos ? t.short[gearPos.key] : kit[kitPos.key];
     const given = gearPos ? r.given : kitGiven[r.n];
     const tr = el('tr', r.points === r.max ? 'ok' : 'bad');
     tr.append(el('td', null, `${r.n}. ${r.label}`), el('td', null, given), el('td', null, correct), el('td', null, `${r.points} / ${r.max}`));
@@ -134,7 +134,12 @@ function renderCards() {
     const kit = kitSolution(t);
     for (const p of [...GEAR, ...KIT]) {
       const tr = el('tr');
-      tr.append(el('th', null, `${p.n}. ${p.label}`), el('td', null, t.gear[p.key] ?? kit[p.key]), el('td', 'pts', `${p.max}`));
+      const td = el('td');
+      if (t.short[p.key]) {
+        td.append(el('strong', null, t.short[p.key]));
+        if (t.gear[p.key] !== t.short[p.key]) td.append(el('span', 'detail', t.gear[p.key]));
+      } else td.textContent = kit[p.key];
+      tr.append(el('th', null, `${p.n}. ${p.label}`), td, el('td', 'pts', `${p.max}`));
       table.append(tr);
     }
     card.append(table);
@@ -160,7 +165,7 @@ function renderCompare() {
     const tr = el('tr');
     tr.append(el('th', null, `${p.n}. ${p.label}`));
     for (const t of TASKS) {
-      const v = t.gear[p.key] ?? kitSolution(t)[p.key];
+      const v = t.short[p.key] ?? kitSolution(t)[p.key];
       tr.append(el('td', v.toLowerCase().startsWith('entfällt') ? 'none' : null, v));
     }
     table.append(tr);
@@ -250,6 +255,7 @@ $('rig-select').firstChild.disabled = true;
 $('rig-select').addEventListener('change', e => startQuiz(TASKS.find(t => t.id === e.target.value)));
 $('rig-random').addEventListener('click', randomTask);
 $('rig-check').addEventListener('click', checkQuiz);
+$('rig-details').addEventListener('change', e => $('rig-cards').classList.toggle('show-details', e.target.checked));
 $('rec-check').addEventListener('click', checkRecognize);
 $('rec-next').addEventListener('click', nextRecognize);
 for (const b of document.querySelectorAll('[data-tab]')) b.addEventListener('click', () => showTab(b.dataset.tab));

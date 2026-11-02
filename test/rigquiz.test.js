@@ -23,7 +23,7 @@ test('Musterlösung jeder Aufgabe ergibt 28 Punkte', () => {
 test('Auswahl enthält die richtige Lösung genau einmal und keine Doppelten', () => {
   for (const t of TASKS) for (const p of GEAR) {
     const opts = gearOptions(t, p.key);
-    assert.equal(opts.filter(o => o === t.gear[p.key]).length, 1);
+    assert.equal(opts.filter(o => o === t.short[p.key]).length, 1);
     assert.equal(new Set(opts).size, opts.length);
     assert.ok(opts.length >= 2, `${t.id} ${p.key}: zu wenige Möglichkeiten`);
   }
@@ -61,13 +61,10 @@ test('A6: Rachensperre mit und ohne richtig; A10: Kescher ist falsch', () => {
 
 import { RECOGNIZE, GROUPS, isCorrect } from '../js/rigs.js';
 
-test('A10: große Stationärrolle zählt als richtig und erscheint nicht als falsche Möglichkeit', () => {
+test('Merkform: A10 nutzt dieselbe große Stationärrolle wie A3, Optionen eindeutig', () => {
   const a10 = TASKS.find(t => t.id === 'A10');
   assert.equal(isCorrect(a10, 'rolle', 'Große Stationärrolle'), true);
-  for (let i = 0; i < 30; i++) {
-    const opts = gearOptions(a10, 'rolle');
-    assert.equal(opts.filter(o => isCorrect(a10, 'rolle', o)).length, 1);
-  }
+  for (const t of TASKS) for (const p of GEAR) assert.ok(t.short[p.key], `${t.id} ${p.key}: Merkform fehlt`);
 });
 
 test('Erkennen-Übung und Gruppen verweisen nur auf gültige Aufgaben', () => {

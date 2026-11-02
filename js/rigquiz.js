@@ -2,10 +2,10 @@
 import { GEAR, TASKS, TOOLS, PASS_POINTS, toolById, isCorrect } from './rigs.js';
 import { shuffle } from './deck.js';
 
-// Richtige Lösung plus bis zu `n - 1` verschiedene falsche Werte derselben Position aus anderen Aufgaben.
+// Richtige Lösung (Merkform) plus bis zu `n - 1` verschiedene falsche Werte derselben Position aus anderen Aufgaben.
 export function gearOptions(task, key, rand = Math.random, n = 4, tasks = TASKS) {
-  const correct = task.gear[key];
-  const others = [...new Set(tasks.map(t => t.gear[key]).filter(v => !isCorrect(task, key, v)))];
+  const correct = task.short[key];
+  const others = [...new Set(tasks.map(t => t.short[key]).filter(v => !isCorrect(task, key, v)))];
   return shuffle([correct, ...shuffle(others, rand).slice(0, n - 1)], rand);
 }
 
@@ -46,7 +46,7 @@ export function scoreRig(task, answers, tools) {
 
 // Volle Musterlösung einer Aufgabe (für Tests und „Lösung zeigen“).
 export function solution(task) {
-  const answers = Object.fromEntries(GEAR.map(p => [p.key, task.gear[p.key]]));
+  const answers = Object.fromEntries(GEAR.map(p => [p.key, task.short[p.key]]));
   const tools = [task.kit.landehilfe, 'metermass', 'schlagholz', 'messer',
     task.kit.rachensperre === true ? 'rachensperre' : null, task.kit.loesen[0]].filter(Boolean);
   return { answers, tools };
