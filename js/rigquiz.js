@@ -71,6 +71,7 @@ const IMG_RULES = [
   [/Trockenfliege/, 'trockenfliege'], [/Nassfliege/, 'nassfliege'], [/^Mais$/, 'mais'], [/^Wurm$/, 'tauwurm'],
   [/^Made/, 'made'], [/Wattwurm/, 'wattwurm'], [/Gaff/, 'gaff'], [/Metermaß/, 'metermass'],
   [/Unterfangkescher/, 'unterfangkescher'], [/Rachensperre/, 'rachensperre'],
+  [/Hakenlöser/, 'stabhakenloeser'], [/Lösezange/, 'loesezange'], [/Arterienklemme/, 'arterienklemme'],
 ];
 const imgFor = label => IMG_RULES.find(([re]) => re.test(label))?.[1] ?? null;
 

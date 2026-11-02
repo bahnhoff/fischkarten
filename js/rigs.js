@@ -343,6 +343,7 @@ export const TABLE_TIPS = [
     'A10: dicke Hauptschnur plus Brandungsvorfach mit Schlagschnur (15–20 kg, ca. 10 m), die fängt den Wurf mit dem schweren Blei ab.',
     'Vor freilaufender Beschwerung (Futterkorb, Laufblei) schützen Stopper oder Gummiperle den Wirbel.',
     'Stahlvorfach 40 cm bei A5 und A6; zwei Wirbel dazu wurden nicht beanstandet.',
+    'Hakenlöser: Stabhakenlöser für kleine Haken (A1, A2), Arterienklemme für Fliegen (A7, A8), Lösezange für große Haken und Drillinge (A5, A6, A9, A10). Bei A3, A4 und A6 sind die Quellen uneinheitlich.',
     'Wirbelgröße = Hakengröße: klein (Gr. 12) bei A1/A2, mittel (Gr. 6) bei A3/A4 und am Stahlvorfach A5/A6, groß (Meereswirbel) nur bei A9/A10. Die Rolle spielt dafür keine Rolle.',
   ] },
   { title: 'Köder', items: [
@@ -430,6 +431,9 @@ RECOGNIZE.push(
   { img: 'unterfangkescher', item: 'Unterfangkescher', tasks: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6'] },
   { img: 'rachensperre', item: 'Rachensperre', tasks: ['A5', 'A6'] },
   { img: 'stahlvorfach', item: 'Stahlvorfach', tasks: ['A5', 'A6'] },
+  { img: 'stabhakenloeser', item: 'Stabhakenlöser: für kleine Einzelhaken', tasks: ['A1', 'A2'] },
+  { img: 'arterienklemme', item: 'Arterienklemme: für die feinen Fliegenhaken', tasks: ['A7', 'A8'] },
+  { img: 'loesezange', item: 'Lösezange: für große Haken und Drillinge', tasks: ['A5', 'A9', 'A10'] },
 );
 
 // Rollen-Vergleich: dasselbe Rollenbild in drei Größen. Die Größenzahlen sind übliche Herstellerangaben

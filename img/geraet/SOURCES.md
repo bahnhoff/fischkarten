@@ -25,3 +25,6 @@ Alle Bilder von Wikimedia Commons, verkleinert, teils zugeschnitten.
 | unterfangkescher.jpg | https://commons.wikimedia.org/wiki/File:Landing_net_1.jpg | Huangdan2060 | CC BY 3.0 |
 | rachensperre.jpg | https://commons.wikimedia.org/wiki/File:Angeln_zubehoer_hackenloesezange_maulsperrer_01.jpg | Raboe001 | CC BY-SA 2.5 |
 | stahlvorfach.jpg | https://commons.wikimedia.org/wiki/File:Angeln_zubehoer_wirbel_02.jpg | Raboe001 | CC BY-SA 2.5 |
+| stabhakenloeser.jpg | https://commons.wikimedia.org/wiki/File:Angeln_zubehoer_hackenloeser_01.jpg (Ausschnitt) | Raboe001 | CC BY-SA 2.5 |
+| loesezange.jpg | https://commons.wikimedia.org/wiki/File:Angeln_zubehoer_hackenloesezange_maulsperrer_01.jpg (Ausschnitt) | Raboe001 | CC BY-SA 2.5 |
+| arterienklemme.jpg | https://commons.wikimedia.org/wiki/File:Hemostat_Clamp.JPG | Saltanat ebli | gemeinfrei |
