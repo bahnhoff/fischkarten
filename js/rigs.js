@@ -397,7 +397,9 @@ export const RECOGNIZE = [
 // Bilder für „Erkennen“ (Quellen: img/geraet/SOURCES.md). Der Name erscheint erst nach dem Prüfen.
 const ALL = TASKS.map(t => t.id);
 RECOGNIZE.push(
-  { img: 'stationaerrolle', item: 'Stationärrolle (die Größe entscheidet: klein A1/A2, mittel A6, groß A3/A4/A5/A10)', tasks: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A10'] },
+  { reels: 0, item: 'Kleine Stationärrolle', tasks: ['A1', 'A2'] },
+  { reels: 1, item: 'Mittlere Stationärrolle: nur A6', tasks: ['A6'] },
+  { reels: 2, item: 'Große Stationärrolle', tasks: ['A3', 'A4', 'A5', 'A10'] },
   { img: 'multirolle', item: 'Multirolle', tasks: ['A9'] },
   { img: 'fliegenrolle', item: 'Fliegenrolle', tasks: ['A7', 'A8'] },
   { img: 'pose', item: 'Posen (klein für A1, größer für A3)', tasks: ['A1', 'A3'] },
@@ -419,3 +421,11 @@ RECOGNIZE.push(
   { img: 'rachensperre', item: 'Rachensperre', tasks: ['A5', 'A6'] },
   { img: 'stahlvorfach', item: 'Stahlvorfach', tasks: ['A5', 'A6'] },
 );
+
+// Rollen-Vergleich: dasselbe Rollenbild in drei Größen. Die Größenzahlen sind übliche Herstellerangaben
+// (allgemeines Anglerwissen, keine Prüfungsquelle); ob die Prüfungsrollen beschriftet sind, ist unbekannt.
+export const REEL_SIZES = [
+  { label: 'klein', number: '1000', scale: 0.55 },
+  { label: 'mittel', number: '2500', scale: 0.75 },
+  { label: 'groß', number: '4000', scale: 1 },
+];

@@ -1,6 +1,6 @@
 // Seite „Rutenbau“: Üben, Aufgabenkarten und Vergleichstabelle.
 import { GEAR, KIT, TASKS, TOOLS, MAX_POINTS, PASS_POINTS, ORDER_TEXT, kitSolution, toolById,
-  EXAM_DAY, TABLE_TIPS, GROUPS, RECOGNIZE } from './rigs.js';
+  EXAM_DAY, TABLE_TIPS, GROUPS, RECOGNIZE, REEL_SIZES } from './rigs.js';
 import { gearOptions, scoreRig } from './rigquiz.js';
 import { shuffle } from './deck.js';
 
@@ -184,14 +184,28 @@ const rec = { item: null, picked: new Set(), right: 0, total: 0, checked: false,
 
 function nextRecognize() {
   // Bildfragen zuerst (pop nimmt vom Ende), danach die Textfragen.
-  if (rec.order.length === 0) rec.order = [...shuffle(RECOGNIZE.filter(r => !r.img)), ...shuffle(RECOGNIZE.filter(r => r.img))];
+  if (rec.order.length === 0) rec.order = [...shuffle(RECOGNIZE.filter(r => !r.img && r.reels == null)), ...shuffle(RECOGNIZE.filter(r => r.img || r.reels != null))];
   rec.item = rec.order.pop();
   rec.picked = new Set();
   rec.checked = false;
   const img = rec.item.img;
   $('rec-img').hidden = !img;
   if (img) $('rec-img').src = `img/geraet/${img}.jpg`;
-  $('rec-item').textContent = img ? 'Was ist das, und zu welcher Aufgabe gehört es?' : rec.item.item;
+  const reel = rec.item.reels;
+  $('rec-reels').hidden = reel == null;
+  if (reel != null) {
+    $('rec-reels').replaceChildren(...REEL_SIZES.map((r, i) => {
+      const fig = el('figure', i === reel ? 'reel marked' : 'reel');
+      const im = el('img');
+      im.src = 'img/geraet/stationaerrolle.jpg';
+      im.alt = `Stationärrolle ${r.label}`;
+      im.style.height = `calc(${r.scale} * min(28vh, 220px))`;
+      fig.append(im, el('figcaption', null, `Größe ${r.number}${i === reel ? ' ← diese' : ''}`));
+      return fig;
+    }));
+  }
+  $('rec-item').textContent = reel != null ? 'Drei Stationärrollen liegen auf dem Tisch. Zu welcher Aufgabe gehört die markierte?'
+    : img ? 'Was ist das, und zu welcher Aufgabe gehört es?' : rec.item.item;
   $('rec-result').textContent = '';
   $('rec-tasks').replaceChildren(...TASKS.map(t => {
     const b = el('button', 'rec-task', `${t.id} ${t.fish}`);
@@ -218,7 +232,7 @@ function checkRecognize() {
     b.classList.toggle('ok', want.has(b.dataset.id));
     b.classList.toggle('bad', rec.picked.has(b.dataset.id) && !want.has(b.dataset.id));
   }
-  const name = rec.item.img ? `${rec.item.item}. ` : '';
+  const name = rec.item.img || rec.item.reels != null ? `${rec.item.item}. ` : '';
   $('rec-result').textContent = name + (ok ? 'Richtig.' : `Richtig wäre: ${rec.item.tasks.join(', ')}.`);
   $('rec-result').className = `rec-result ${ok ? 'ok' : 'bad'}`;
   updateRecScore();
