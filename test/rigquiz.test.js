@@ -72,3 +72,12 @@ test('Erkennen-Übung und Gruppen verweisen nur auf gültige Aufgaben', () => {
   for (const r of RECOGNIZE) for (const id of r.tasks) assert.ok(ids.has(id), `${r.item}: ${id}`);
   assert.deepEqual(GROUPS.flatMap(g => g.tasks).sort(), [...ids].sort());
 });
+
+test('Wurm zählt bei A1–A4 als richtiger Köder, nicht bei A5–A10', () => {
+  for (const t of TASKS) {
+    const ok = ['A1', 'A2', 'A3', 'A4'].includes(t.id);
+    assert.equal(isCorrect(t, 'koeder', 'Wurm'), ok, t.id);
+    const opts = gearOptions(t, 'koeder');
+    assert.equal(opts.filter(o => isCorrect(t, 'koeder', o)).length, 1, `${t.id}: genau eine richtige Möglichkeit`);
+  }
+});

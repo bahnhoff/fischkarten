@@ -300,9 +300,14 @@ export const SHORT = {
 };
 for (const t of TASKS) t.short = SHORT[t.id];
 
+// Gleichwertige Antworten: Wurm ist laut Vereinstabelle [NB] bei A1–A4 zugelassen.
+export const ALSO_OK = {
+  A1: { koeder: ['Wurm'] }, A2: { koeder: ['Wurm'] }, A3: { koeder: ['Wurm'] },
+};
+
 // Ist die gewählte Merkform-Antwort richtig?
 export function isCorrect(task, key, answer) {
-  return answer === task.short[key];
+  return answer === task.short[key] || (ALSO_OK[task.id]?.[key] ?? []).includes(answer);
 }
 
 // ---------- Erfahrungen aus der Prüfung (Herne 2021, docs/research/erfahrungsbericht-herne-2021-rutenbau.md) ----------
@@ -412,9 +417,9 @@ RECOGNIZE.push(
   { img: 'trockenfliege', item: 'Trockenfliege (buschig, aufrechte Flügel)', tasks: ['A7'] },
   { img: 'nassfliege', item: 'Nassfliege (Hechel nach hinten, schlank)', tasks: ['A8'] },
   { img: 'mais', item: 'Mais', tasks: ['A3'] },
-  { img: 'tauwurm', item: 'Wurm (Tauwurm)', tasks: ['A4'] },
+  { img: 'tauwurm', item: 'Wurm (Tauwurm): passt zu allen Friedfisch- und Grundruten', tasks: ['A1', 'A2', 'A3', 'A4'] },
   { img: 'made', item: 'Maden', tasks: ['A1', 'A2'] },
-  { img: 'wattwurm', item: 'Wattwurm', tasks: ['A10'] },
+  { img: 'wattwurm', item: 'Wattwurm: Meeresköder, nur für die Brandung', tasks: ['A10'] },
   { img: 'gaff', item: 'Gaff', tasks: ['A9'] },
   { img: 'metermass', item: 'Maßband / Messbrett: bei jeder Aufgabe', tasks: ALL },
   { img: 'unterfangkescher', item: 'Unterfangkescher', tasks: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6'] },

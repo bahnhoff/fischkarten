@@ -1,6 +1,6 @@
 // Seite „Rutenbau“: Üben, Aufgabenkarten und Vergleichstabelle.
 import { GEAR, KIT, TASKS, TOOLS, MAX_POINTS, PASS_POINTS, ORDER_TEXT, kitSolution, toolById,
-  EXAM_DAY, TABLE_TIPS, GROUPS, RECOGNIZE, REEL_SIZES } from './rigs.js';
+  EXAM_DAY, TABLE_TIPS, GROUPS, RECOGNIZE, REEL_SIZES, ALSO_OK } from './rigs.js';
 import { gearOptions, scoreRig } from './rigquiz.js';
 import { shuffle } from './deck.js';
 
@@ -87,7 +87,8 @@ function checkQuiz() {
   for (const r of res.rows) {
     const gearPos = GEAR.find(p => p.n === r.n);
     const kitPos = KIT.find(p => p.n === r.n);
-    const correct = gearPos ? t.short[gearPos.key] : kit[kitPos.key];
+    const also = gearPos ? (ALSO_OK[t.id]?.[gearPos.key] ?? []) : [];
+    const correct = gearPos ? [t.short[gearPos.key], ...also].join(' oder ') : kit[kitPos.key];
     const given = gearPos ? r.given : kitGiven[r.n];
     const tr = el('tr', r.points === r.max ? 'ok' : 'bad');
     tr.append(el('td', null, `${r.n}. ${r.label}`), el('td', null, given), el('td', null, correct), el('td', null, `${r.points} / ${r.max}`));
@@ -137,6 +138,8 @@ function renderCards() {
       const td = el('td');
       if (t.short[p.key]) {
         td.append(el('strong', null, t.short[p.key]));
+        const also = ALSO_OK[t.id]?.[p.key];
+        if (also) td.append(el('span', 'also', ` (auch richtig: ${also.join(', ')})`));
         if (t.gear[p.key] !== t.short[p.key]) td.append(el('span', 'detail', t.gear[p.key]));
       } else td.textContent = kit[p.key];
       tr.append(el('th', null, `${p.n}. ${p.label}`), td, el('td', 'pts', `${p.max}`));
