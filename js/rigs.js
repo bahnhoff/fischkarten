@@ -393,3 +393,29 @@ export const RECOGNIZE = [
   { item: 'Gaff', tasks: ['A9'] },
   { item: 'Rachensperre', tasks: ['A5', 'A6'] },
 ];
+
+// Bilder für „Erkennen“ (Quellen: img/geraet/SOURCES.md). Der Name erscheint erst nach dem Prüfen.
+const ALL = TASKS.map(t => t.id);
+RECOGNIZE.push(
+  { img: 'stationaerrolle', item: 'Stationärrolle (die Größe entscheidet: klein A1/A2, mittel A6, groß A3/A4/A5/A10)', tasks: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A10'] },
+  { img: 'multirolle', item: 'Multirolle', tasks: ['A9'] },
+  { img: 'fliegenrolle', item: 'Fliegenrolle', tasks: ['A7', 'A8'] },
+  { img: 'pose', item: 'Posen (klein für A1, größer für A3)', tasks: ['A1', 'A3'] },
+  { img: 'bleischrot', item: 'Bleischrot', tasks: ['A1', 'A3'] },
+  { img: 'laufblei', item: 'Laufblei (Sargblei, Durchlaufblei)', tasks: ['A4'] },
+  { img: 'futterkorb', item: 'Futterkorb', tasks: ['A2'] },
+  { img: 'spinner', item: 'Spinner (groß für A5, klein für A6)', tasks: ['A5', 'A6'] },
+  { img: 'blinker', item: 'Blinker', tasks: ['A5'] },
+  { img: 'pilker', item: 'Pilker', tasks: ['A9'] },
+  { img: 'trockenfliege', item: 'Trockenfliege (buschig, aufrechte Flügel)', tasks: ['A7'] },
+  { img: 'nassfliege', item: 'Nassfliege (Hechel nach hinten, schlank)', tasks: ['A8'] },
+  { img: 'mais', item: 'Mais', tasks: ['A3'] },
+  { img: 'tauwurm', item: 'Wurm (Tauwurm)', tasks: ['A4'] },
+  { img: 'made', item: 'Maden', tasks: ['A1', 'A2'] },
+  { img: 'wattwurm', item: 'Wattwurm', tasks: ['A10'] },
+  { img: 'gaff', item: 'Gaff', tasks: ['A9'] },
+  { img: 'metermass', item: 'Maßband / Messbrett: bei jeder Aufgabe', tasks: ALL },
+  { img: 'unterfangkescher', item: 'Unterfangkescher', tasks: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6'] },
+  { img: 'rachensperre', item: 'Rachensperre', tasks: ['A5', 'A6'] },
+  { img: 'stahlvorfach', item: 'Stahlvorfach', tasks: ['A5', 'A6'] },
+);

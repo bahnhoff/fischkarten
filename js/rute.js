@@ -187,7 +187,10 @@ function nextRecognize() {
   rec.item = rec.order.pop();
   rec.picked = new Set();
   rec.checked = false;
-  $('rec-item').textContent = rec.item.item;
+  const img = rec.item.img;
+  $('rec-img').hidden = !img;
+  if (img) $('rec-img').src = `img/geraet/${img}.jpg`;
+  $('rec-item').textContent = img ? 'Was ist das, und zu welcher Aufgabe gehört es?' : rec.item.item;
   $('rec-result').textContent = '';
   $('rec-tasks').replaceChildren(...TASKS.map(t => {
     const b = el('button', 'rec-task', `${t.id} ${t.fish}`);
@@ -214,7 +217,8 @@ function checkRecognize() {
     b.classList.toggle('ok', want.has(b.dataset.id));
     b.classList.toggle('bad', rec.picked.has(b.dataset.id) && !want.has(b.dataset.id));
   }
-  $('rec-result').textContent = ok ? 'Richtig.' : `Richtig wäre: ${rec.item.tasks.join(', ')}.`;
+  const name = rec.item.img ? `${rec.item.item}. ` : '';
+  $('rec-result').textContent = name + (ok ? 'Richtig.' : `Richtig wäre: ${rec.item.tasks.join(', ')}.`);
   $('rec-result').className = `rec-result ${ok ? 'ok' : 'bad'}`;
   updateRecScore();
 }
